@@ -1,0 +1,17 @@
+# EXAMPLE DOCKER COMPOSE FILE TO BE USED WITH THIS IMAGE AND LARAVEL
+
+version: "3.7"
+services:
+
+    app:
+        build: .
+        restart: always
+        container_name: app
+        ports:
+            - "8000:80"
+        networks:
+            - app
+
+networks:
+    app:
+        name: app
