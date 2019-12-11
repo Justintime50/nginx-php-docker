@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.org/Justintime50/nginx-php-docker)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-A combined Nginx/PHP-FPM Docker image.
+A combined Nginx/PHP-FPM Docker image ready for MySQL and Laravel.
 
 ## Usage
 Call this image from a Dockerfile or docker-compose file to easily deploy a single Nginx/PHP-FPM Docker container.
