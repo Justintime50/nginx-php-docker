@@ -8,7 +8,7 @@ RUN apt-get update -y \
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install PHP packages
-RUN docker-php-ext-install mysqli pdo pdo_mysql \
+RUN docker-php-ext-install mysqli pdo pdo_mysql openssl git unzip zip \
     && docker-php-ext-install opcache \
     && apt-get install -y libicu-dev \
     && docker-php-ext-configure intl \
