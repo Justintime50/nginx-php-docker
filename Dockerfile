@@ -7,13 +7,13 @@ RUN apt-get update -y \
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
-# Install PHP & Laravel required packages
-RUN docker-php-ext-install pdo_mysql \
+# Install PHP packages
+RUN docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install opcache \
-    && apt-get install -y libicu-dev openssl git unzip zip \
+    && apt-get install -y libicu-dev \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-    && apt-get remove -y libicu-dev icu-devtools
+    && apt-get remove -y libicu-dev
     
 RUN { \
         echo 'opcache.memory_consumption=128'; \

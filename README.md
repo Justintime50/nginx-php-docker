@@ -1,5 +1,9 @@
-# Combined Nginx/PHP Docker Image
-A combined Nginx/PHP Docker Image - built for Laravel.
+# Nginx/PHP-FPM Docker Image
+A combined Nginx/PHP-FPM Docker image.
 
 ## Usage
-Call this image from a Dockerfile or inside a docker-compose file.
+Call this image from a Dockerfile or docker-compose file to easily deploy a single Nginx/PHP-FPM Docker container.
+
+## Links
+- [Docker Hub](https://hub.docker.com/repository/docker/justintime50/nginx-php)
+- [Github](https://github.com/Justintime50/nginx-php-docker)
