@@ -3,15 +3,15 @@ FROM php:${VERSION}-fpm-alpine
 
 # Install Nginx
 RUN apk update \
-    && apk add --no-cache nginx
+    && apk add --no-cache nginx \
+    && mkdir -p /run/nginx
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install PHP packages and extensions
 RUN apk add --no-cache icu-dev openssl git unzip zip \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install intl opcache \
+    && docker-php-ext-install opcache \
     && apk del icu-dev
     
 RUN { \
@@ -31,4 +31,4 @@ WORKDIR /var/www/html
 
 EXPOSE 80 443
 
-CMD ["/etc/start.sh"]
+ENTRYPOINT ["/etc/start.sh"]

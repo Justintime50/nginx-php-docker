@@ -1,4 +1,4 @@
 #!/bin/sh
 
-service nginx start
+nginx
 php-fpm
