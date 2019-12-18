@@ -1,17 +1,23 @@
 ARG VERSION=7.4
 FROM php:${VERSION}-fpm-alpine
 
-# Install Nginx
-RUN apk update \
-    && apk add --no-cache nginx \
-    && mkdir -p /run/nginx
-
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
-# Install PHP packages and extensions
-RUN apk add --no-cache icu-dev openssl git unzip zip \
-    && docker-php-ext-install pdo pdo_mysql opcache \
+# Install Nginx & PHP packages and extensions
+RUN apk update \
+    && apk add --no-cache \
+        nginx \
+        icu-dev \
+        openssl \
+        git \
+        unzip \
+        zip \
+    && mkdir -p /run/nginx \
+    && docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        opcache \
     && apk del icu-dev
     
 RUN { \
