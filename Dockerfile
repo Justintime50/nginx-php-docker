@@ -10,8 +10,8 @@ RUN apk update \
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install PHP packages and extensions
-RUN apk add --no-cache icu-dev pdo pdo_mysql openssl git unzip zip \
-    && docker-php-ext-install opcache \
+RUN apk add --no-cache icu-dev openssl git unzip zip \
+    && docker-php-ext-install pdo pdo_mysql opcache \
     && apk del icu-dev
     
 RUN { \
