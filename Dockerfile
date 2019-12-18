@@ -9,7 +9,6 @@ RUN apk update \
     && apk add --no-cache \
         nginx \
         icu-dev \
-        openssl \
         git \
         unzip \
         zip \
