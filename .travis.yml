@@ -9,6 +9,5 @@ php:
   - 7.4
 
 script:
-  - docker build -t nginx-php .
-  - docker run -d -p 127.0.0.1:80:80 --name nginx-php nginx-php
+  - docker-compose up --build
   - docker ps | grep -q nginx-php
