@@ -1,8 +1,6 @@
-# EXAMPLE TO BE USED WITH A LARAVEL APPLICATION
-
 FROM justintime50/nginx-php:latest
 
-COPY --chown=www-data:www-data ./laravel /var/www/html
+COPY --chown=www-data:www-data ./src /var/www/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 RUN php composer.phar install
 

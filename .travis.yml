@@ -1,14 +1,8 @@
-language: php
+language: bash
 
 services:
   - docker
 
-php:
-  - 7.2
-  - 7.3
-  - 7.4
-
 script:
-  - docker build -t nginx-php .
-  - docker run -d -p 127.0.0.1:80:80 --name nginx-php nginx-php
+  - docker-compose up -d --build
   - docker ps | grep -q nginx-php

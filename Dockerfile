@@ -1,19 +1,23 @@
-FROM php:7.4-fpm
-
-# Install Nginx
-RUN apt-get update -y \
-    && apt-get install -y nginx
+ARG VERSION=7.4
+FROM php:${VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
-# Install PHP packages
-RUN docker-php-ext-install mysqli pdo pdo_mysql \
-    && docker-php-ext-install opcache \
-    && apt-get install -y libicu-dev openssl git unzip zip \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install intl \
-    && apt-get remove -y libicu-dev
+# Install Nginx & PHP packages and extensions
+RUN apk update \
+    && apk add --no-cache \
+        nginx \
+        icu-dev \
+        git \
+        unzip \
+        zip \
+    && mkdir -p /run/nginx \
+    && docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        opcache \
+    && apk del icu-dev
     
 RUN { \
         echo 'opcache.memory_consumption=128'; \
@@ -26,6 +30,7 @@ RUN { \
 
 COPY /conf/nginx.conf /etc/nginx/conf.d/default.conf
 COPY /scripts/start.sh /etc/start.sh
+COPY --chown=www-data:www-data src/ /var/www/html
 
 WORKDIR /var/www/html
 
