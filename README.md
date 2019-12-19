@@ -15,10 +15,22 @@ OR
 image: justintime50/nginx-php:latest
 ```
 
-## Tags
+## Docker Tags
 
-- `latest` - uses the latest release of PHP-FPM Alpine & Nginx
-- `dev` - the testing branch of this image. Don't use this tag in production.
+- `latest` - uses the latest release of PHP-FPM Alpine & Nginx.
+- `7.2` - uses the latest release on the PHP 7.2 Alpine track.
+- `7.3` - uses the latest release on the PHP 7.3 Alpine track.
+- `7.4` - uses the latest release on the PHP 7.4 Alpine track.
+- `dev` - the testing branch for this image. Do not use this tag in production.
+
+## Building New Versions
+This image supports swapping in the version number of PHP with a value from the official `PHP-FPM Alpine` [tag list](https://hub.docker.com/_/php).
+
+```bash
+docker build -t justintime50/nginx-php:7.3 --build-arg VERSION=7.3 .
+
+sudo docker push justintime50/nginx-php:7.3
+```
 
 ## Examples
 These example configurations can be used for your application.
