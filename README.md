@@ -1,4 +1,5 @@
 # Nginx/PHP-FPM Docker Image
+
 [![Build Status](https://travis-ci.org/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.org/Justintime50/nginx-php-docker)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
@@ -18,9 +19,9 @@ image: justintime50/nginx-php:latest
 ## Docker Tags
 
 - `latest` - uses the latest release of PHP-FPM Alpine & Nginx.
-- `7.2` - uses the latest release on the PHP 7.2 Alpine track.
-- `7.3` - uses the latest release on the PHP 7.3 Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
+- `7.3` - uses the latest release on the PHP 7.3 Alpine track.
+- `7.2` - uses the latest release on the PHP 7.2 Alpine track.
 - `dev` - the testing branch for this image. Do not use this tag in production.
 
 ## Building New Versions
