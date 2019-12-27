@@ -3,6 +3,10 @@ language: bash
 services:
   - docker
 
+branches:
+  only:
+  - master
+
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t justintime50/nginx-php:7.2 --build-arg VERSION=7.2 .
