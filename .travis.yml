@@ -4,17 +4,15 @@ services:
   - docker
 
 script:
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then 
-    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    docker build -t justintime50/nginx-php:7.2 --build-arg VERSION=7.2 .
-    docker push justintime50/nginx-php:7.2
-    docker build -t justintime50/nginx-php:7.3 --build-arg VERSION=7.3 .
-    docker push justintime50/nginx-php:7.3
-    docker build -t justintime50/nginx-php:7.4 --build-arg VERSION=7.4 .
-    docker push justintime50/nginx-php:7.4
+  if: branch = master
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t justintime50/nginx-php:7.2 --build-arg VERSION=7.2 .
+    - docker push justintime50/nginx-php:7.2
+    - docker build -t justintime50/nginx-php:7.3 --build-arg VERSION=7.3 .
+    - docker push justintime50/nginx-php:7.3
+    - docker build -t justintime50/nginx-php:7.4 --build-arg VERSION=7.4 .
+    - docker push justintime50/nginx-php:7.4
     # Latest tag is built off the master branch, no need to include it here
-  fi
-  - if [ "$TRAVIS_BRANCH" = "develop" ]; then 
-    docker-compose up -d --build
-    docker ps | grep -q nginx-php
-  fi
+  if: branch = develop
+    - docker-compose up -d --build
+    - docker ps | grep -q nginx-php
