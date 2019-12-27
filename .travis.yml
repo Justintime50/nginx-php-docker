@@ -6,6 +6,7 @@ services:
 branches:
   only:
   - master
+  # Do not build other branches than master for fear of pushing unstable images
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
