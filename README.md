@@ -18,7 +18,7 @@ image: justintime50/nginx-php:latest
 
 ## Docker Tags
 
-- `latest` - uses the latest release of PHP-FPM Alpine & Nginx.
+- `latest` - uses the latest explicitly requested release on the PHP Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
 - `7.3` - uses the latest release on the PHP 7.3 Alpine track.
 - `7.2` - uses the latest release on the PHP 7.2 Alpine track.
@@ -26,6 +26,12 @@ image: justintime50/nginx-php:latest
 
 ## Building New Versions
 This image supports swapping in the version number of PHP with a value from the official `PHP-FPM Alpine` [tag list](https://hub.docker.com/_/php).
+
+**Automated Builds**
+
+Travis CI will automatically build and push supported tags to the Docker Hub on each new commit to master.
+
+**Manual Builds**
 
 ```bash
 docker build -t justintime50/nginx-php:7.3 --build-arg VERSION=7.3 .
@@ -36,7 +42,7 @@ sudo docker push justintime50/nginx-php:7.3
 ## Examples
 These example configurations can be used for your application.
 
-- Laravel
+- [Laravel](/examples/laravel)
 
 ## Links
 - [Docker Hub](https://hub.docker.com/repository/docker/justintime50/nginx-php)
