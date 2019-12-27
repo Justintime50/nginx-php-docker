@@ -14,12 +14,10 @@ RUN apk update \
         zip \
     && mkdir -p /run/nginx \
     && docker-php-ext-install \
-        pdo \
         pdo_mysql \
         opcache \
-    && apk del icu-dev
-    
-RUN { \
+    && apk del icu-dev \
+    && { \
         echo 'opcache.memory_consumption=128'; \
         echo 'opcache.interned_strings_buffer=8'; \
         echo 'opcache.max_accelerated_files=4000'; \
