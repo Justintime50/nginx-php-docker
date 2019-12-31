@@ -4,9 +4,9 @@ FROM php:${VERSION}-fpm-alpine
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
-# Install Nginx & PHP packages and extensions
-RUN apk update \
-    && apk add --no-cache \
+# Install Nginx & PHP packages and extensions -- locking versions here creates stale packages quickly so we ignore that in linting
+# hadolint ignore=DL3018
+RUN apk add --update \
         nginx \
         icu-dev \
         git \
@@ -17,6 +17,7 @@ RUN apk update \
         pdo_mysql \
         opcache \
     && apk del icu-dev \
+    && rm -rf /var/cache/apk/* \
     && { \
         echo 'opcache.memory_consumption=128'; \
         echo 'opcache.interned_strings_buffer=8'; \
