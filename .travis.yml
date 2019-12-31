@@ -3,6 +3,16 @@ language: bash
 services:
   - docker
 
+env:
+  # Path to 'hadolint' binary
+  HADOLINT: "${HOME}/hadolint"
+
+install:
+  # Download hadolint binary and set it as executable
+  - curl -sL -o ${HADOLINT} "https://github.com/hadolint/hadolint/releases/download/v1.16.0/hadolint-$(uname -s)-$(uname -m)"
+    && chmod 700 ${HADOLINT}
+
 script:
-    - if [[ $TRAVIS_BRANCH = "master" ]]; then ./travis/master.sh; fi;
-    - if [[ $TRAVIS_BRANCH = "develop" ]]; then ./travis/develop.sh; fi;
+  - git ls-files --exclude='Dockerfile*' --ignored | xargs --max-lines=1 ${HADOLINT}
+  - if [[ $TRAVIS_BRANCH = "master" ]]; then ./travis/master.sh; fi;
+  - if [[ $TRAVIS_BRANCH = "develop" ]]; then ./travis/develop.sh; fi;
