@@ -5,7 +5,7 @@ FROM php:${VERSION}-fpm-alpine
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install Nginx & PHP packages and extensions -- locking versions here creates stale packages quickly so we ignore that in linting
-# hadolint ignore=DL3018
+# hadolint ignore=DL3018,DL3019
 RUN apk add --update \
         nginx \
         icu-dev \
