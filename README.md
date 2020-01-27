@@ -9,7 +9,7 @@ This image has `msmtp` installed and configured `config/msmtprc` to send mail lo
 
 ## Usage
 
-```
+```bash
 # Dockerfile usage
 FROM: justintime50/nginx-php:latest
 
