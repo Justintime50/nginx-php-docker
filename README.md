@@ -3,16 +3,17 @@
 [![Build Status](https://travis-ci.org/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.org/Justintime50/nginx-php-docker)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-A lightweight combined Nginx/PHP-FPM Docker image ready for MySQL and Laravel.
+A lightweight combined Nginx/PHP-FPM Docker image.
+
+This image has `msmtp` installed and configured `config/msmtprc` to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`).  This image also has `mysql_pdo` enabled to use with a database. There is a sample `nginx.conf` file in the `config` folder.
 
 ## Usage
-Call this image from a Dockerfile or docker-compose file to easily deploy a single Nginx/PHP-FPM Docker container.
 
 ```
+# Dockerfile usage
 FROM: justintime50/nginx-php:latest
 
-OR 
-
+# docker-compose usage
 image: justintime50/nginx-php:latest
 ```
 
@@ -43,7 +44,3 @@ sudo docker push justintime50/nginx-php:7.3
 These example configurations can be used for your application.
 
 - [Laravel](/examples/laravel)
-
-## Links
-- [Docker Hub](https://hub.docker.com/repository/docker/justintime50/nginx-php)
-- [Github](https://github.com/Justintime50/nginx-php-docker)
