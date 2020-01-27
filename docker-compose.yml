@@ -1,8 +1,8 @@
 version: "3.7"
-
 services:
     nginx-php:
         container_name: "nginx-php"
         build: .
         ports: 
-            - "8008:80"
+            - "80:80"
+            - "443:443"
