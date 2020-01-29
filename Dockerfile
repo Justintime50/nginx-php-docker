@@ -7,12 +7,20 @@ ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 # Install Nginx & PHP packages and extensions -- locking versions here creates stale packages quickly so we ignore that in linting
 # hadolint ignore=DL3018,DL3019
 RUN apk add --no-cache \
+        # for PHP/Laravel
         git \
         icu-dev \
         msmtp \
         nginx \
         unzip \
         zip \
+        # for gd
+        libfreetype6-dev \
+        libjpeg-turbo8-dev \
+        libpng12-dev \
+        # for imagick
+        libmagickwand-dev \
+        imagemagick \
     && mkdir -p /run/nginx \
     && docker-php-ext-install \
         pdo_mysql \

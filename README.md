@@ -9,7 +9,7 @@ This image has `msmtp` installed and configured `config/msmtprc` to send mail lo
 
 ## Usage
 
-```
+```bash
 # Dockerfile usage
 FROM: justintime50/nginx-php:latest
 
@@ -23,6 +23,8 @@ image: justintime50/nginx-php:latest
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
 - `7.3` - uses the latest release on the PHP 7.3 Alpine track.
 - `7.2` - uses the latest release on the PHP 7.2 Alpine track.
+- `7.1` - uses the latest release on the PHP 7.1 Alpine track. - `Deprecated`
+- `7.0` - uses the latest release on the PHP 7.0 Alpine track. - `Deprecated`
 - `dev` - the testing branch for this image. Do not use this tag in production.
 
 ## Building New Versions
