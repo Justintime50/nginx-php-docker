@@ -19,6 +19,8 @@ image: justintime50/nginx-php:latest
 
 ## Docker Tags
 
+This image is intended to be used with recent PHP tags. Some packages may not install properly on anything `< 7.3`.
+
 - `latest` - uses the latest explicitly requested release on the PHP Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
 - `7.3` - uses the latest release on the PHP 7.3 Alpine track.
