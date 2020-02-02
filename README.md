@@ -5,7 +5,7 @@
 
 A lightweight combined Nginx/PHP-FPM Docker image.
 
-This image has `msmtp` installed and configured `config/msmtprc` to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`).  This image also has `mysql_pdo` enabled to use with a database. There is a sample `nginx.conf` file in the `config` folder.
+This image has `msmtp` installed and configured `config/msmtprc` to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`).  This image also has `mysql_pdo` enabled to use with a database. There is a sample `nginx.conf` file in the `config` folder. `GD` is enabled for image processing and `zip` is installed for items that may need that.
 
 ## Usage
 

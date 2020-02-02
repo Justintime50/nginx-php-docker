@@ -1,22 +1,24 @@
 ARG VERSION=7.4
 FROM php:${VERSION}-fpm-alpine
-# hadolint ignore=DL3018,DL3019
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install zip for csv stuff
+# hadolint ignore=DL3018
 RUN apk add --no-cache \
     libzip-dev \
     zip \
 && docker-php-ext-install zip
 
 # Install gd for image stuff
+# hadolint ignore=DL3018
 RUN apk add --no-cache libpng libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev \
     && docker-php-ext-install gd \
     && apk del libpng-dev libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev
 
 # Install Nginx & PHP packages and extensions
+# hadolint ignore=DL3018
 RUN apk add --no-cache \
     # for PHP/Laravel
     git \
