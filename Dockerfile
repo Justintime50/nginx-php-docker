@@ -10,6 +10,7 @@ RUN apk add --no-cache \
     libzip-dev \
     zip \
 && docker-php-ext-install zip
+&& apk del libzip-dev
 
 # Install gd for image stuff
 # hadolint ignore=DL3018
