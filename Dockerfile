@@ -9,7 +9,7 @@ ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 RUN apk add --no-cache \
     libzip-dev \
     zip \
-&& docker-php-ext-install zip
+&& docker-php-ext-install zip \
 && apk del libzip-dev
 
 # Install gd for image stuff
