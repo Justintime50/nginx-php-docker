@@ -15,23 +15,22 @@ RUN apk add --no-cache \
         nginx \
         unzip \
         # Install gd for image stuff
-        libpng \
-        libpng-dev \
-        libjpeg-turbo-dev \
-        libwebp-dev \
-        zlib-dev \
-        libxpm-dev \
         freetype-dev \
+        libwebp-dev \
+        libjpeg-turbo-dev \
+        libpng-dev \
         # Install zip for csv stuff
         libzip-dev \
         zip \
-    && mkdir -p /run/nginx \
+    && docker-php-ext-configure gd \
+        --with-jpeg=/usr/include \
+        --with-webp=/usr/include \
+        --with-freetype=/usr/include \
     && docker-php-ext-install \
         pdo_mysql \
         opcache \
         zip \
         gd \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && { \
         echo 'opcache.memory_consumption=128'; \
         echo 'opcache.interned_strings_buffer=8'; \
@@ -40,15 +39,7 @@ RUN apk add --no-cache \
         echo 'opcache.fast_shutdown=1'; \
         echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
-    # Remove dev packages when done
-    && apk del \
-        icu-dev \
-        libpng-dev \
-        libjpeg-turbo-dev \
-        libwebp-dev \
-        zlib-dev \
-        libxpm-dev \
-        freetype-dev
+    && mkdir -p /run/nginx  
 
 COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
 COPY /config/msmtprc /etc/msmtprc
