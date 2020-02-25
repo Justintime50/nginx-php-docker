@@ -21,6 +21,7 @@ RUN apk add --no-cache \
         libwebp-dev \
         zlib-dev \
         libxpm-dev \
+        freetype-dev \
         # Install zip for csv stuff
         libzip-dev \
         zip \
@@ -30,6 +31,7 @@ RUN apk add --no-cache \
         opcache \
         zip \
         gd \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && { \
         echo 'opcache.memory_consumption=128'; \
         echo 'opcache.interned_strings_buffer=8'; \
@@ -38,13 +40,15 @@ RUN apk add --no-cache \
         echo 'opcache.fast_shutdown=1'; \
         echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
+    # Remove dev packages when done
     && apk del \
         icu-dev \
         libpng-dev \
         libjpeg-turbo-dev \
         libwebp-dev \
         zlib-dev \
-        libxpm-dev
+        libxpm-dev \
+        freetype-dev
 
 COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
 COPY /config/msmtprc /etc/msmtprc
