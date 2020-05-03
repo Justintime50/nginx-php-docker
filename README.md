@@ -1,6 +1,6 @@
 # Nginx/PHP-FPM Docker Image
 
-[![Build Status](https://travis-ci.org/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.org/Justintime50/nginx-php-docker)
+[![Build Status](https://travis-ci.com/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.com/Justintime50/nginx-php-docker)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 A lightweight combined Nginx/PHP-FPM Docker image.
