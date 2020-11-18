@@ -1,9 +1,16 @@
+<div align="center">
+
 # Nginx/PHP-FPM Docker Image
 
-[![Build Status](https://travis-ci.com/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.com/Justintime50/nginx-php-docker)
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-
 A lightweight combined Nginx/PHP-FPM Docker image.
+
+[![Build Status](https://travis-ci.com/Justintime50/nginx-php-docker.svg?branch=master)](https://travis-ci.com/Justintime50/nginx-php-docker)
+[![Docker Version](https://img.shields.io/docker/v/justintime50/nginx-php)](https://hub.docker.com/repository/docker/justintime50/nginx-php)
+[![Image Size](https://img.shields.io/docker/image-size/justintime50/nginx-php)](https://hub.docker.com/repository/docker/justintime50/nginx-php)
+[![Docker Pulls](https://img.shields.io/docker/pulls/justintime50/nginx-php)](https://hub.docker.com/repository/docker/justintime50/nginx-php)
+[![Licence](https://img.shields.io/github/license/justintime50/nginx-php-docker)](LICENSE)
+
+</div>
 
 This image has `msmtp` installed and configured `config/msmtprc` to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`).  This image also has `mysql_pdo` enabled to use with a database. There is a sample `nginx.conf` file in the `config` folder. `GD` is enabled for image processing and `zip` is installed for items that may need that.
 
