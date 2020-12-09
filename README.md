@@ -12,23 +12,47 @@ A lightweight combined Nginx/PHP-FPM Docker image.
 
 </div>
 
-This image has `msmtp` installed and configured `config/msmtprc` to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`).  This image also has `mysql_pdo` enabled to use with a database. There is a sample `nginx.conf` file in the `config` folder. `GD` is enabled for image processing and `zip` is installed for items that may need that.
+## Features
+
+The following features work out of the box without any configuration:
+
+* `PHP-FPM` for fast performance.
+* `Nginx` serves as the web host.
+* `msmtp` is installed and configured (see `config/msmtprc`) to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`).  
+* `mysql_pdo` is installed as the driver for database connections. 
+* `gd` is installed for image processing.
+* `zip` is installed for items that may need that.
+
+## Install
+
+```bash
+# Dockerfile
+FROM: justintime50/nginx-php:latest
+
+# docker-compose
+image: justintime50/nginx-php:latest
+```
 
 ## Usage
 
-```bash
-# Dockerfile usage
-FROM: justintime50/nginx-php:latest
+Place your site files into `/var/www/html` inside the container to get started with this image. This can be achieved by using a volume in a `docker-compose` file or by copying them in a `Dockerfile`.
 
-# docker-compose usage
-image: justintime50/nginx-php:latest
+Want to give this image a spin? Simply run the following:
+
+```bash
+docker-compose up -d
 ```
+
+### Laravel
+
+There is a sample `nginx.conf` file in the `config` folder. You can also find a Dockerfile
 
 ## Docker Tags
 
 This image is intended to be used with recent PHP tags. Some packages may not install properly on anything `< 7.3`.
 
 - `latest` - uses the latest explicitly requested release on the PHP Alpine track.
+- `8.0` - uses the latest release on the PHP 8.0 Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
 - `7.3` - uses the latest release on the PHP 7.3 Alpine track.
 - `7.2` - uses the latest release on the PHP 7.2 Alpine track.
@@ -50,8 +74,3 @@ docker build -t justintime50/nginx-php:7.3 --build-arg VERSION=7.3 .
 
 sudo docker push justintime50/nginx-php:7.3
 ```
-
-## Examples
-These example configurations can be used for your application.
-
-- [Laravel](/examples/laravel)
