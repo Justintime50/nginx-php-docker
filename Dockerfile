@@ -5,40 +5,44 @@ FROM php:${VERSION}-fpm-alpine
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install Nginx & PHP packages and extensions
-# hadolint ignore=DL3018
+# hadolint ignore=DL3018 -- ignore the fact we don't pin packages
 RUN apk add --no-cache \
-        # Install mail server
-        msmtp \
-        # for PHP/Laravel
-        git \
-        icu-dev \
-        nginx \
-        unzip \
-        # Install gd for image stuff
-        freetype-dev \
-        libwebp-dev \
-        libjpeg-turbo-dev \
-        libpng-dev \
-        # Install zip for csv stuff
-        libzip-dev \
-        zip \
+    # Install packages required by PHP/Laravel
+    git \
+    icu-dev \
+    nginx \
+    unzip \
+    # Install mail server
+    msmtp \
+    # Install gd for image functions
+    freetype-dev \
+    libwebp-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    # Install zip for csv functions
+    libzip-dev \
+    zip \
+    # Configure image library
     && docker-php-ext-configure gd \
-        --with-jpeg=/usr/include \
-        --with-webp=/usr/include \
-        --with-freetype=/usr/include \
+    --with-jpeg=/usr/include \
+    --with-webp=/usr/include \
+    --with-freetype=/usr/include \
+    # Configure PHP extensions for use in Docker
     && docker-php-ext-install \
-        pdo_mysql \
-        opcache \
-        zip \
-        gd \
+    pdo_mysql \
+    opcache \
+    zip \
+    gd \
+    # Configure OPcache for FPM PHP
     && { \
-        echo 'opcache.memory_consumption=128'; \
-        echo 'opcache.interned_strings_buffer=8'; \
-        echo 'opcache.max_accelerated_files=4000'; \
-        echo 'opcache.revalidate_freq=2'; \
-        echo 'opcache.fast_shutdown=1'; \
-        echo 'opcache.enable_cli=1'; \
+    echo 'opcache.memory_consumption=128'; \
+    echo 'opcache.interned_strings_buffer=8'; \
+    echo 'opcache.max_accelerated_files=4000'; \
+    echo 'opcache.revalidate_freq=2'; \
+    echo 'opcache.fast_shutdown=1'; \
+    echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
+    # Setup Nginx directory
     && mkdir -p /run/nginx  
 
 COPY /config/nginx.conf /etc/nginx/conf.d/default.conf

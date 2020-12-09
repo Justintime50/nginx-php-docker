@@ -3,6 +3,8 @@
 # Test if all supported tags can be built
 
 # Build supported tags
+docker build -t nginx-php:8.0 --build-arg VERSION=8.0 .
+docker run -d -it nginx-php:8.0
 docker build -t nginx-php:7.4 --build-arg VERSION=7.4 .
 docker run -d -it nginx-php:7.4
 docker build -t nginx-php:7.3 --build-arg VERSION=7.3 .
@@ -14,7 +16,8 @@ docker run -d -it nginx-php:7.1
 docker build -t nginx-php:7.0 --build-arg VERSION=7.0 .
 docker run -d -it nginx-php:7.0
 
-# Check if supported images are running
+# Check if supported images can build and are running
+docker ps | grep -q nginx-php:8.0
 docker ps | grep -q nginx-php:7.4
 docker ps | grep -q nginx-php:7.3
 docker ps | grep -q nginx-php:7.2

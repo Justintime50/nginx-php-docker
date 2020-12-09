@@ -8,7 +8,6 @@ services:
         volumes: 
             - ./src/storage/logs:/var/www/html/storage/logs
             - ./src/storage/app/public:/var/www/html/storage/app/public
-            - ./src/.env:/var/www/html/.env
         ports:
             - "8000:80"
         networks:
