@@ -5,7 +5,7 @@ FROM php:${VERSION}-fpm-alpine
 ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install Nginx & PHP packages and extensions
-# hadolint ignore=DL3018 -- ignore the fact we don't pin packages
+# hadolint ignore=DL3018
 RUN apk add --no-cache \
     # Install packages required by PHP/Laravel
     git \
