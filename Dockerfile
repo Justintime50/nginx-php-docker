@@ -1,8 +1,8 @@
-ARG VERSION=7.4
+ARG VERSION=8.0
 FROM php:${VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
-ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
+ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install Nginx & PHP packages and extensions
 # hadolint ignore=DL3018
@@ -24,9 +24,9 @@ RUN apk add --no-cache \
     zip \
     # Configure image library
     && docker-php-ext-configure gd \
-    --with-jpeg=/usr/include \
-    --with-webp=/usr/include \
-    --with-freetype=/usr/include \
+    --with-jpeg \
+    --with-webp \
+    --with-freetype \
     # Configure PHP extensions for use in Docker
     && docker-php-ext-install \
     pdo_mysql \
