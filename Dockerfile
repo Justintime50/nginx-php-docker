@@ -1,8 +1,8 @@
-ARG VERSION=7.4
+ARG VERSION=8.0
 FROM php:${VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
-ENV PHP_CPPFLAGS="$PHP_CPPFLAGS"
+ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
 # Install Nginx & PHP packages and extensions
 # hadolint ignore=DL3018
