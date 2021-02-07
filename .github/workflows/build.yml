@@ -1,0 +1,27 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Hadolint
+        uses: brpaz/hadolint-action@v1.2.1
+        with:
+          dockerfile: Dockerfile
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        imageversion: ["7.3", 7.4", "8.0"]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Build Docker image
+        run: |
+          docker build -t apache-php:${{ matrix.imageversion }} --build-arg VERSION=${{ matrix.imageversion }} .
+          docker run -d -it apache-php:${{ matrix.imageversion }}
+          docker ps | grep -q apache-php:${{ matrix.imageversion }}

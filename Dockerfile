@@ -24,9 +24,9 @@ RUN apk add --no-cache \
     zip \
     # Configure image library
     && docker-php-ext-configure gd \
-    --with-jpeg=/usr/include \
-    --with-webp=/usr/include \
-    --with-freetype=/usr/include \
+    --with-jpeg \
+    --with-webp \
+    --with-freetype \
     # Configure PHP extensions for use in Docker
     && docker-php-ext-install \
     pdo_mysql \
