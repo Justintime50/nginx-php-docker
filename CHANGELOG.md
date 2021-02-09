@@ -3,6 +3,7 @@
 ## v5 (2021-02-08)
 
 * Adds `Composer` to the image out of the box
+* Set explicit shell
 
 ## v4 (2021-02-06)
 
