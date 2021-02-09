@@ -1,5 +1,9 @@
 # Changelog
 
+## v5 (2021-02-08)
+
+* Adds `Composer` to the image out of the box
+
 ## v4 (2021-02-06)
 
 * Dropped support for PHP 7.0 - 7.3 due to GD changes that cannot build properly under those versions

@@ -43,7 +43,9 @@ RUN apk add --no-cache \
     echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
     # Setup Nginx directory
-    && mkdir -p /run/nginx  
+    && mkdir -p /run/nginx \
+    # Install Composer
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
 COPY /config/msmtprc /etc/msmtprc
