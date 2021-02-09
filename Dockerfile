@@ -4,6 +4,8 @@ FROM php:${VERSION}-fpm-alpine
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
+
 # Install Nginx & PHP packages and extensions
 # hadolint ignore=DL3018
 RUN apk add --no-cache \
