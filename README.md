@@ -42,10 +42,6 @@ Want to give this image a spin? Simply run the following:
 docker-compose up -d
 ```
 
-### Laravel
-
-There is a sample `nginx.conf` file in the `config` folder. You can also find a Dockerfile
-
 ## Docker Tags
 
 - `latest` - uses the latest explicitly requested release on the PHP Alpine track.
