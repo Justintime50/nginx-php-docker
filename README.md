@@ -59,7 +59,7 @@ This image supports swapping in the version number of PHP with a value from the 
 
 **Automated Builds**
 
-GitHub Actions will automatically build and push supported tags to the Docker Hub on each new release.
+GitHub Actions will automatically build and push supported tags to Docker Hub on each new release and Docker Hub will automatically build the `latest` tag on any push to the main branch.
 
 **Manual Builds**
 
