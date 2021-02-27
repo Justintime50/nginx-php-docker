@@ -1,5 +1,9 @@
 # Changelog
 
+## v6 (2021-02-27)
+
+* Removes `server_name` from nginx.conf as it's not needed
+
 ## v5 (2021-02-08)
 
 * Adds `Composer` to the image out of the box
