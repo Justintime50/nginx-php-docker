@@ -59,7 +59,7 @@ This image supports swapping in the version number of PHP with a value from the 
 
 **Automated Builds**
 
-Travis CI will automatically build and push supported tags to the Docker Hub on each new commit to master.
+GitHub Actions will automatically build and push supported tags to the Docker Hub on each new release.
 
 **Manual Builds**
 
