@@ -15,7 +15,7 @@ A lightweight combined Nginx/PHP-FPM Docker image.
 
 The following features work out of the box without any configuration:
 
-* `PHP-FPM` for fast performance
+* `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 * `Nginx` serves as the web host
 * `msmtp` is installed and configured (see `config/msmtprc`) to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`) 
 * `mysql_pdo` is installed as the driver for database connections

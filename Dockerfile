@@ -37,12 +37,14 @@ RUN apk add --no-cache \
     gd \
     # Configure OPcache for FPM PHP
     && { \
-    echo 'opcache.memory_consumption=128'; \
-    echo 'opcache.interned_strings_buffer=8'; \
-    echo 'opcache.max_accelerated_files=4000'; \
+    echo 'opcache.enable_cli=1'; \
+    echo 'opcache.memory_consumption=256'; \
+    echo 'opcache.interned_strings_buffer=32'; \
+    echo 'opcache.max_accelerated_files=20000'; \
+    echo 'opcache.max_wasted_percentage=10'; \
+    # we compromise some performance gains here by allowing cache-invalidation for dev projects via revalidate_freq
     echo 'opcache.revalidate_freq=2'; \
     echo 'opcache.fast_shutdown=1'; \
-    echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
     # Setup Nginx directory
     && mkdir -p /run/nginx \
