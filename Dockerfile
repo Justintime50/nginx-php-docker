@@ -1,4 +1,4 @@
-ARG VERSION=8.0
+ARG VERSION=7.4
 FROM php:${VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -38,7 +38,7 @@ RUN apk add --no-cache \
     # Configure OPcache for FPM PHP
     && { \
     echo 'opcache.enable_cli=1'; \
-    echo 'opcache.memory_consumption=256'; \
+    echo 'opcache.memory_consumption=196'; \
     echo 'opcache.interned_strings_buffer=32'; \
     echo 'opcache.max_accelerated_files=20000'; \
     echo 'opcache.max_wasted_percentage=10'; \

@@ -1,5 +1,10 @@
 # Changelog
 
+## NEXT RELEASE
+
+* Changed default PHP version from 8 to 7.4
+* Improved OPcache performance by allowing more memory
+
 ## v6 (2021-02-27)
 
 * Removes `server_name` from nginx.conf as it's not needed
