@@ -47,10 +47,6 @@ docker-compose up -d
 - `latest` - uses the latest explicitly requested release on the PHP Alpine track.
 - `8.0` - uses the latest release on the PHP 8.0 Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
-- `7.3` - uses the latest release on the PHP 7.3 Alpine track. - `Deprecated`
-- `7.2` - uses the latest release on the PHP 7.2 Alpine track. - `Deprecated`
-- `7.1` - uses the latest release on the PHP 7.1 Alpine track. - `Deprecated`
-- `7.0` - uses the latest release on the PHP 7.0 Alpine track. - `Deprecated`
 - `dev` - the testing branch for this image. Do not use this tag in production.
 
 ## Building New Versions

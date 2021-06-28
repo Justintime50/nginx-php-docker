@@ -3,6 +3,7 @@
 ## NEXT RELEASE
 
 * Changed default PHP version from 8 to 7.4
+* Pins dependencies to their major versions
 * Improved OPcache performance by allowing more memory
 
 ## v6 (2021-02-27)

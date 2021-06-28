@@ -7,23 +7,22 @@ ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install Nginx & PHP packages and extensions
-# hadolint ignore=DL3018
 RUN apk add --no-cache \
     # Install packages required by PHP/Laravel
-    git \
-    icu-dev \
-    nginx \
-    unzip \
+    git~=2 \
+    icu-dev~=67 \
+    nginx~=1 \
+    unzip~=6 \
     # Install mail server
-    msmtp \
+    msmtp~=1 \
     # Install gd for image functions
-    freetype-dev \
-    libwebp-dev \
-    libjpeg-turbo-dev \
-    libpng-dev \
+    freetype-dev~=2 \
+    libwebp-dev~=1 \
+    libjpeg-turbo-dev~=2 \
+    libpng-dev~=1 \
     # Install zip for csv functions
-    libzip-dev \
-    zip \
+    libzip-dev~=1 \
+    zip~=3 \
     # Configure image library
     && docker-php-ext-configure gd \
     --with-jpeg \
@@ -48,8 +47,10 @@ RUN apk add --no-cache \
     } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
     # Setup Nginx directory
     && mkdir -p /run/nginx \
-    # Install Composer
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    # Install the latest version of Composer
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    # Clear apk cache to reduce file size and clutter
+    && rm -rf /var/cache/apk/*
 
 COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
 COPY /config/msmtprc /etc/msmtprc
