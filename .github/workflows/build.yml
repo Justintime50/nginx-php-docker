@@ -27,4 +27,4 @@ jobs:
       - name: Test image is running
         run: docker ps | grep -q nginx-php:${{ matrix.php_version }}
       - name: Test nginx config
-          docker exec -t nginx-php:${{ matrix.php_version }} nginx -T
+        run: docker exec -t nginx-php:${{ matrix.php_version }} nginx -T
