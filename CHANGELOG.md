@@ -1,5 +1,15 @@
 # Changelog
 
+## v7 (TODO)
+
+* Changes nginx config path from `/etc/nginx/conf.d/*.conf` to `/etc/nginx/http.d/*.conf` as this was altered in Alpine 3.14/15
+* Changed default PHP version from 8 to 7.4
+* Pins dependencies to their major versions
+* Changes nginx landing page to PHP Info
+* Improved OPcache performance by allowing more memory
+* Remove build cache when finished to reduce image size
+* Moved opcache config from the Dockerfile to a separate `ini` file, enabled JIT compiling
+
 ## v6 (2021-02-27)
 
 * Removes `server_name` from nginx.conf as it's not needed
