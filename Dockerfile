@@ -52,7 +52,7 @@ RUN apk add --no-cache \
     # Clear apk cache to reduce file size and clutter
     && rm -rf /var/cache/apk/*
 
-COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY /config/nginx.conf /etc/nginx/http.d/default.conf
 COPY /config/msmtprc /etc/msmtprc
 COPY /scripts/start.sh /etc/start.sh
 COPY --chown=www-data:www-data src/ /var/www/html
