@@ -8,6 +8,7 @@
 * Changes nginx landing page to PHP Info
 * Improved OPcache performance by allowing more memory
 * Remove build cache when finished to reduce image size
+* Moved opcache config from the Dockerfile to a separate `ini` file, enabled JIT compiling
 
 ## v6 (2021-02-27)
 

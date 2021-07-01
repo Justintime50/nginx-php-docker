@@ -34,17 +34,6 @@ RUN apk add --no-cache \
     opcache \
     zip \
     gd \
-    # Configure OPcache for FPM PHP
-    && { \
-    echo 'opcache.enable_cli=1'; \
-    echo 'opcache.memory_consumption=196'; \
-    echo 'opcache.interned_strings_buffer=32'; \
-    echo 'opcache.max_accelerated_files=20000'; \
-    echo 'opcache.max_wasted_percentage=10'; \
-    # we compromise some performance gains here by allowing cache-invalidation for dev projects via revalidate_freq
-    echo 'opcache.revalidate_freq=2'; \
-    echo 'opcache.fast_shutdown=1'; \
-    } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
     # Setup Nginx directory
     && mkdir -p /run/nginx \
     # Install the latest version of Composer
@@ -53,6 +42,7 @@ RUN apk add --no-cache \
     && rm -rf /var/cache/apk/*
 
 COPY /config/nginx.conf /etc/nginx/http.d/default.conf
+COPY /config/opcache.ini /usr/local/etc/php/conf.d/php-opocache-cfg.ini
 COPY /config/msmtprc /etc/msmtprc
 COPY /scripts/start.sh /etc/start.sh
 COPY --chown=www-data:www-data src/ /var/www/html

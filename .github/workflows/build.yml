@@ -24,5 +24,6 @@ jobs:
         run: |
           docker build -t nginx-php:${{ matrix.php_version }} --build-arg VERSION=${{ matrix.php_version }} .
           docker run -d -it nginx-php:${{ matrix.php_version }}
+          sleep 2
           docker ps | grep -q nginx-php:${{ matrix.php_version }}
           docker exec -it nginx-php:${{ matrix.php_version }} nginx -T
