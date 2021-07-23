@@ -35,7 +35,13 @@ image: justintime50/nginx-php:latest
 
 ## Usage
 
+**Vanilla PHP and HTML**
+
 Place your `PHP` or `HTML` site files into `/var/www/html/public` inside the container to get started with this image. This can be achieved by using a volume in a `docker-compose` file or by copying them over in a `Dockerfile`. If you are using HTML instead of PHP, ensure you remove the `index.php` file so that your `index.html` file can take priority.
+
+**Laravel**
+
+Place the root of your laravel project in `/var/www/html` so that the `public` folder of laravel lines up with the directory served by this nginx image (see `examples/laravel` for more details).
 
 Want to give this image a spin? Simply run the following:
 
