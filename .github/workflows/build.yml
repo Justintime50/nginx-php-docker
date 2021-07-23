@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Build Docker image
-        run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg VERSION=${{ matrix.php_version }} .
+        run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
       - name: Run Docker image
         run: docker run -d --name nginx-php -t nginx-php:${{ matrix.php_version }}
       - name: Test image is running

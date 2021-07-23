@@ -1,5 +1,5 @@
-ARG VERSION=7.4
-FROM php:${VERSION}-fpm-alpine
+ARG PHP_VERSION=8.0
+FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"

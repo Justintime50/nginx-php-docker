@@ -1,14 +1,17 @@
 # Changelog
 
-## v7 (TODO)
+## v7 (2021-07-23)
 
 * Changes nginx config path from `/etc/nginx/conf.d/*.conf` to `/etc/nginx/http.d/*.conf` as this was altered in Alpine 3.14/15
-* Changed default PHP version from 8 to 7.4
 * Pins dependencies to their major versions
 * Changes nginx landing page to PHP Info
 * Improved OPcache performance by allowing more memory
 * Remove build cache when finished to reduce image size
 * Moved opcache config from the Dockerfile to a separate `ini` file, enabled JIT compiling
+* Expire static asset caching after 30 days in nginx config
+* Deny access to non-site or public assets in nginx config
+* Turns off nginx version info on publicly accessible pages
+* Due to Docker autobuilds becoming a paid service, the `latest` tag will now be built via GitHub Actions on any push to the main branch.
 
 ## v6 (2021-02-27)
 
