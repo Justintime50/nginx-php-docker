@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        imageversion: ["7.4", "8.0"]
+        php_version: ["7.4", "8.0"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Sign into Docker
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Build Docker image
-        run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker build -t justintime50/nginx-php:${{ matrix.imageversion }} --build-arg VERSION=${{ matrix.imageversion }} .
-          docker push justintime50/nginx-php:${{ matrix.imageversion }}
+        run: docker build -t justintime50/nginx-php:${{ matrix.php_version }}-${{ github.event.release.tag_name }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
+      - name: Push Image to Docker Hub
+        run: docker push justintime50/nginx-php:${{ matrix.php_version }}-${{ github.event.release.tag_name }}

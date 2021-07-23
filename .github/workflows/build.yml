@@ -9,19 +9,22 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Hadolint
-        uses: brpaz/hadolint-action@v1.2.1
-        with:
-          dockerfile: Dockerfile
+        uses: brpaz/hadolint-action@v1.5.0
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        imageversion: ["7.4", "8.0"]
+        php_version: ["7.4", "8.0"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Build Docker image
+        run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
+      - name: Run Docker image
+        run: docker run -d --name nginx-php -t nginx-php:${{ matrix.php_version }}
+      - name: Test image is running
+        run: docker ps | grep -q nginx-php
+      - name: Test nginx config inside container
         run: |
-          docker build -t nginx-php:${{ matrix.imageversion }} --build-arg VERSION=${{ matrix.imageversion }} .
-          docker run -d -it nginx-php:${{ matrix.imageversion }}
-          docker ps | grep -q nginx-php:${{ matrix.imageversion }}
+          sleep 10
+          docker exec -t nginx-php nginx -T

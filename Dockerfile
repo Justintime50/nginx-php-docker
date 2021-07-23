@@ -1,5 +1,5 @@
-ARG VERSION=8.0
-FROM php:${VERSION}-fpm-alpine
+ARG PHP_VERSION=8.0
+FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
 ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
@@ -7,23 +7,22 @@ ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install Nginx & PHP packages and extensions
-# hadolint ignore=DL3018
 RUN apk add --no-cache \
     # Install packages required by PHP/Laravel
-    git \
-    icu-dev \
-    nginx \
-    unzip \
+    git~=2 \
+    icu-dev~=67 \
+    nginx~=1 \
+    unzip~=6 \
     # Install mail server
-    msmtp \
+    msmtp~=1 \
     # Install gd for image functions
-    freetype-dev \
-    libwebp-dev \
-    libjpeg-turbo-dev \
-    libpng-dev \
+    freetype-dev~=2 \
+    libwebp-dev~=1 \
+    libjpeg-turbo-dev~=2 \
+    libpng-dev~=1 \
     # Install zip for csv functions
-    libzip-dev \
-    zip \
+    libzip-dev~=1 \
+    zip~=3 \
     # Configure image library
     && docker-php-ext-configure gd \
     --with-jpeg \
@@ -35,24 +34,18 @@ RUN apk add --no-cache \
     opcache \
     zip \
     gd \
-    # Configure OPcache for FPM PHP
-    && { \
-    echo 'opcache.memory_consumption=128'; \
-    echo 'opcache.interned_strings_buffer=8'; \
-    echo 'opcache.max_accelerated_files=4000'; \
-    echo 'opcache.revalidate_freq=2'; \
-    echo 'opcache.fast_shutdown=1'; \
-    echo 'opcache.enable_cli=1'; \
-    } > /usr/local/etc/php/conf.d/php-opocache-cfg.ini \
     # Setup Nginx directory
     && mkdir -p /run/nginx \
-    # Install Composer
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    # Install the latest version of Composer
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    # Clear apk cache to reduce file size and clutter
+    && rm -rf /var/cache/apk/*
 
-COPY /config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY /config/nginx.conf /etc/nginx/http.d/default.conf
+COPY /config/opcache.ini /usr/local/etc/php/conf.d/php-opocache-cfg.ini
 COPY /config/msmtprc /etc/msmtprc
 COPY /scripts/start.sh /etc/start.sh
-COPY --chown=www-data:www-data src/ /var/www/html
+COPY --chown=www-data:www-data src/ /var/www/html/public
 
 WORKDIR /var/www/html
 
