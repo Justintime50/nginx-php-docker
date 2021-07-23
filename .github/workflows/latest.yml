@@ -16,4 +16,4 @@ jobs:
       - name: Build latest Docker image
         run: docker build -t justintime50/nginx-php .
       - name: Push latest Image to Docker Hub
-        run: docker push justintime50/nginx-phpx
+        run: docker push justintime50/nginx-php
