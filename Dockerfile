@@ -45,7 +45,7 @@ COPY /config/nginx.conf /etc/nginx/http.d/default.conf
 COPY /config/opcache.ini /usr/local/etc/php/conf.d/php-opocache-cfg.ini
 COPY /config/msmtprc /etc/msmtprc
 COPY /scripts/start.sh /etc/start.sh
-COPY --chown=www-data:www-data src/ /var/www/html
+COPY --chown=www-data:www-data src/ /var/www/html/public
 
 WORKDIR /var/www/html
 
