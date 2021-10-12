@@ -23,6 +23,14 @@ The following features work out of the box without any configuration:
 * `zip` is installed for items that may need that
 * `composer` is installed and ready to use to setup all your dependencies
 
+## Platforms
+
+This image offers platform support for the following architectures starting from image version `8`:
+
+* linux/amd64
+* linux/arm/v7
+* linux/arm64
+
 ## Install
 
 ```bash

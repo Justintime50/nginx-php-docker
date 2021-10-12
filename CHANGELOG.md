@@ -1,5 +1,9 @@
 # Changelog
 
+## 8 (2021-10-12)
+
+* Adds build architectures for linux/amd64 (eg: Intel), linux/arm/v7 (eg: Raspberry Pi), linux/arm64 (eg: M1 Macs)
+
 ## 7 (2021-07-23)
 
 * Changes nginx config path from `/etc/nginx/conf.d/*.conf` to `/etc/nginx/http.d/*.conf` as this was altered in Alpine 3.14/15
