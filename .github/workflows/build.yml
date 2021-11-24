@@ -3,13 +3,22 @@ name: build
 on: [push, pull_request]
 
 jobs:
-  lint:
+  docker-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Hadolint
         uses: brpaz/hadolint-action@v1.5.0
+  sh-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Run sh-checker
+        uses: luizm/action-sh-checker@master
+        env:
+          SHFMT_OPTS: -i 4 -d
   build:
     runs-on: ubuntu-latest
     strategy:
