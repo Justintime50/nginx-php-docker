@@ -9,7 +9,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Hadolint
-        uses: brpaz/hadolint-action@v1.5.0
+        uses: brpaz/hadolint-action@v1.6.0
   sh-checker:
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php_version: ["7.4", "8.0"]
+        php_version: ["7.4", "8.0", "8.1"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2

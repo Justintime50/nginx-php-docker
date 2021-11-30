@@ -62,12 +62,14 @@ docker-compose up -d
 Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instance, a valid tag would be `7.4-9` signifying to use PHP v7.4 and the 9th version of this image (nginx config, Dockerfile, etc).
 
 **PHP Versions**
+- `8.1` - uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
 - `8.0` - uses the latest release on the PHP 8.0 Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
 
 **Image Versions (see CHANGELOG for more details)**
-- `7`
+- `9`
 - `8`
+- `7`
 
 **Standalone Tags**
 - `latest` - uses the latest release of this image with all defaults.

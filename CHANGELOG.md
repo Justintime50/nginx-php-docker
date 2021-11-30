@@ -1,5 +1,9 @@
 # Changelog
 
+## 9 (2021-11-30)
+
+* Adds PHP 8.1 support
+
 ## 8 (2021-10-12)
 
 * Adds build architectures for linux/amd64 (eg: Intel), linux/arm/v7 (eg: Raspberry Pi), linux/arm64 (eg: M1 Macs)
