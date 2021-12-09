@@ -27,13 +27,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Sign into Docker
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Build Docker image
         run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
+      # TODO: Investigate why I get the error `docker: 'scan' is not a docker command.` on GitHub Actions and re-enable this when possible
       # We only get 10 free scans a month, hopefully we never use that up or this step will fail
-      - name: Docker Scan
-        run: docker scan nginx-php:${{ matrix.php_version }}
+      # - name: Docker Scan
+      #   run: docker scan nginx-php:${{ matrix.php_version }}
       - name: Run Docker image
         run: docker run -d --name nginx-php -t nginx-php:${{ matrix.php_version }}
       - name: Test image is running
