@@ -10,7 +10,7 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache \
     # Install packages required by PHP/Laravel
     git~=2 \
-    icu-dev~=67 \
+    icu-dev~=69 \
     nginx~=1 \
     unzip~=6 \
     # Install mail server
