@@ -34,8 +34,8 @@ RUN apk add --no-cache \
     opcache \
     zip \
     gd \
-    # Setup Nginx directory
-    && mkdir -p /run/nginx \
+    # Setup Nginx directories
+    && mkdir -p /var/run/nginx /var/cache/nginx && chown -R www-data:www-data /var/run/nginx /var/cache/nginx \
     # Install the latest version of Composer
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     # Clear apk cache to reduce file size and clutter
@@ -49,6 +49,8 @@ COPY --chown=www-data:www-data src/ /var/www/html/public
 
 WORKDIR /var/www/html
 
-EXPOSE 80 443
+EXPOSE 8080 8443
+
+USER www-data
 
 ENTRYPOINT ["/etc/start.sh"]
