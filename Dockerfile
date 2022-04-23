@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.0
+ARG PHP_VERSION=8.1
 FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -7,7 +7,7 @@ ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install Nginx & PHP packages and extensions
-RUN apk add --no-cache \
+RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
     icu-dev~=69 \
@@ -34,12 +34,13 @@ RUN apk add --no-cache \
     opcache \
     zip \
     gd \
-    # Setup Nginx directories
-    && mkdir -p /var/run/nginx /var/cache/nginx && chown -R www-data:www-data /var/run/nginx /var/cache/nginx \
+    # Setup Nginx directories and permissions
+    && mkdir -p /var/run/nginx \
+    && chown -R www-data:www-data /var/run/nginx /var/lib/nginx /var/log/nginx \
     # Install the latest version of Composer
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    # Clear apk cache to reduce file size and clutter
-    && rm -rf /var/cache/apk/*
+    # Cleanup
+    && rm -rf /var/cache/apk/* /tmp/*
 
 COPY /config/nginx.conf /etc/nginx/http.d/default.conf
 COPY /config/opcache.ini /usr/local/etc/php/conf.d/php-opocache-cfg.ini
@@ -51,6 +52,6 @@ WORKDIR /var/www/html
 
 EXPOSE 8080 8443
 
-USER www-data
+USER www-data:www-data
 
 ENTRYPOINT ["/etc/start.sh"]
