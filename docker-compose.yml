@@ -1,6 +1,6 @@
 services:
-    nginx-php:
-        container_name: "nginx-php"
-        build: .
-        ports:
-            - "81:80"
+  nginx-php:
+    container_name: "nginx-php"
+    build: .
+    ports:
+      - "8888:8080"
