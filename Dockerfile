@@ -53,7 +53,7 @@ COPY --chown=www-data:www-data src/ /var/www/html/public
 
 WORKDIR /var/www/html
 
-EXPOSE 8080 8443
+EXPOSE 80 443
 
 USER www-data:www-data
 
