@@ -34,9 +34,12 @@ RUN apk add --no-cache --update \
     opcache \
     zip \
     gd \
-    # Setup Nginx directories and permissions
+    # Setup Nginx directories, permissions, and one-off configurations
     && mkdir -p /var/run/nginx \
     && chown -R www-data:www-data /var/run/nginx /var/lib/nginx /var/log/nginx \
+    && sed -i 's|user nginx;|#user www-data;|' /etc/nginx/nginx.conf \
+    && sed -i 's|user =|;user =|' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's|group =|;group =|' /usr/local/etc/php-fpm.d/www.conf \
     # Install the latest version of Composer
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     # Cleanup
