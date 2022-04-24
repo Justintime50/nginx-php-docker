@@ -59,18 +59,6 @@ docker compose up -d
 
 Once the container spins up, navigate to `http://localhost:8888` in a browser.
 
-### Ports
-
-Starting with v10 of this image, ports 8080 and 8443 are exposed instead of 80 and 443 due to the container running as a non-root user. You'll want to either use these ports in your project or map them to `80` and `443` respectively:
-
-```yaml
-services:
-  project:
-    ports:
-      - '80:8080'
-      - '443:8443'
-```
-
 ## Docker Tags
 
 Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instance, a valid tag would be `7.4-9` signifying to use PHP v7.4 and the 9th version of this image (nginx config, Dockerfile, etc).

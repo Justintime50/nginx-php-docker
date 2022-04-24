@@ -3,4 +3,4 @@ services:
     container_name: "nginx-php"
     build: .
     ports:
-      - "8888:8080"
+      - "8888:80"

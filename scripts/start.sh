@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-    echo "Starting up image services..."
+    echo "Starting up nginx-php..."
     nginx
     php-fpm
 }
