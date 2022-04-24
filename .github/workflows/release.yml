@@ -13,7 +13,7 @@ jobs:
         php_version: ["7.4", "8.0", "8.1"]
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Install buildx

@@ -15,21 +15,21 @@ A lightweight combined Nginx/PHP-FPM Docker image.
 
 The following features work out of the box without any configuration:
 
-* `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
-* `Nginx` serves as the web host
-* `msmtp` is installed and configured (see `config/msmtprc`) to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`) 
-* `mysql_pdo` is installed as the driver for database connections
-* `gd` is installed for image processing
-* `zip` is installed for items that may need that
-* `composer` is installed and ready to use to setup all your dependencies
+- `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
+- `Nginx` serves as the web host and reverse proxy
+- `msmtp` is installed and configured (see `config/msmtprc`) to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`)
+- `mysql_pdo` is installed as the driver for database connections
+- `gd` is installed for image processing
+- `zip` is installed for items that may need that
+- `composer` is installed and ready to use to setup all your dependencies
 
 ## Platforms
 
 This image offers platform support for the following architectures starting from image version `8`:
 
-* linux/amd64
-* linux/arm/v7
-* linux/arm64
+- linux/amd64
+- linux/arm/v7
+- linux/arm64
 
 ## Install
 
@@ -54,7 +54,19 @@ Place the root of your laravel project in `/var/www/html` so that the `public` f
 Want to give this image a spin? Simply run the following:
 
 ```bash
-docker-compose up -d
+docker compose up -d
+```
+
+### Ports
+
+Starting with v10 of this image, ports 8080 and 8443 are exposed instead of 80 and 443 due to the container running as a non-root user. You'll want to either use these ports in your project or map them to `80` and `443` respectively:
+
+```yaml
+services:
+  project:
+    ports:
+      - '80:8080'
+      - '443:8443'
 ```
 
 ## Docker Tags
@@ -62,16 +74,20 @@ docker-compose up -d
 Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instance, a valid tag would be `7.4-9` signifying to use PHP v7.4 and the 9th version of this image (nginx config, Dockerfile, etc).
 
 **PHP Versions**
+
 - `8.1` - uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
 - `8.0` - uses the latest release on the PHP 8.0 Alpine track.
 - `7.4` - uses the latest release on the PHP 7.4 Alpine track.
 
 **Image Versions (see CHANGELOG for more details)**
+
+- `10`
 - `9`
 - `8`
 - `7`
 
 **Standalone Tags**
+
 - `latest` - uses the latest release of this image with all defaults.
 - `dev` - the testing branch for this image. Do not use this tag in production.
 
