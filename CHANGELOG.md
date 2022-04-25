@@ -1,4 +1,8 @@
-# CHANGELOG
+# CHANGELOG\
+
+## 11 (2022-04-24)
+
+- Corrects port exposure back to ports 80 and 443 as intended externally
 
 ## 10 (2022-04-23)
 
