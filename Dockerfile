@@ -10,8 +10,8 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
-    # icu-dev 72 breaks on PHP 8.0 and older
-    icu-dev~=71 \
+    # icu-dev not pinned due to transient version needs per PHP version used
+    icu-dev \
     nginx~=1 \
     unzip~=6 \
     # Install mail server
