@@ -11,6 +11,7 @@ RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
     # icu-dev not pinned due to transient version needs per PHP version used
+    # hadolint ignore=DL3018
     icu-dev \
     nginx~=1 \
     unzip~=6 \
