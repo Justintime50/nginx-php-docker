@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.1
+ARG PHP_VERSION=8.2
 FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -10,7 +10,7 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
-    icu-dev~=69 \
+    icu-dev~=72 \
     nginx~=1 \
     unzip~=6 \
     # Install mail server

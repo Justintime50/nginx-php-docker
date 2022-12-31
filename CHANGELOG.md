@@ -1,4 +1,9 @@
-# CHANGELOG\
+# CHANGELOG
+
+## 12 (2022-12-31)
+
+- Adds PHP 8.2 support
+- Bumps image and build dependencies
 
 ## 11 (2022-04-24)
 

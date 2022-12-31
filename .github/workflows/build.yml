@@ -9,7 +9,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: Hadolint
-        uses: hadolint/hadolint-action@v2.1.0
+        uses: hadolint/hadolint-action@v3.0.0
   sh-checker:
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php_version: ["7.4", "8.0", "8.1"]
+        php_version: ["7.4", "8.0", "8.1", "8.2"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
