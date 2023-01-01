@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 13 (2022-12-31)
+
+- Fixes an inline comment throwing errors for opcache.ini output on image startup
+
 ## 12 (2022-12-31)
 
 - Adds PHP 8.2 support
