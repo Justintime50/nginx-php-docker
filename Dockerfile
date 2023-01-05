@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.2
+ARG PHP_VERSION=7.4
 FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -7,13 +7,12 @@ ARG PHP_CPPFLAGS="$PHP_CPPFLAGS"
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install Nginx & PHP packages and extensions
+# If a package is not pinned, it's due to transient version needs per PHP version used
 # hadolint ignore=DL3018
 RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
-    # Install packages required by Laravel
-    npm~=9.1 \
-    # icu-dev not pinned due to transient version needs per PHP version used
+    npm \
     icu-dev \
     nginx~=1 \
     unzip~=6 \
