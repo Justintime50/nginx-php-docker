@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 14 (2023-01-04)
+
+- Adds NPM to the container
+
 ## 13 (2022-12-31)
 
 - Fixes an inline comment throwing errors for opcache.ini output on image startup

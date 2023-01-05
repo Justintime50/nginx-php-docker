@@ -72,6 +72,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `14`
 - `13`
 - `12`
 - `11`

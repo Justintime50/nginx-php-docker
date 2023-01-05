@@ -11,6 +11,8 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
+    # Install packages required by Laravel
+    npm~=9.1 \
     # icu-dev not pinned due to transient version needs per PHP version used
     icu-dev \
     nginx~=1 \
