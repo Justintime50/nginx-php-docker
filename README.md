@@ -21,7 +21,8 @@ The following features work out of the box without any configuration:
 - `mysql_pdo` is installed as the driver for database connections
 - `gd` is installed for image processing
 - `zip` is installed for items that may need that
-- `composer` is installed and ready to use to setup all your dependencies
+- `composer` is installed and ready to use to setup all your PHP dependencies
+- `npm` is installed and ready to use to setup all your Node dependencies
 
 ## Platforms
 
