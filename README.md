@@ -17,12 +17,12 @@ The following features work out of the box without any configuration:
 
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 - `Nginx` serves as the web host and reverse proxy
-- `msmtp` is installed and configured (see `config/msmtprc`) to send mail locally for testing via apps like `Mailcatcher` which will work out of the box (if Mailcatcher container is titled `mailcatcher`)
+- `msmtp` is installed and configured (see `config/msmtprc`) out of the box to send email to `Mailtrap`. Alternatively configure for your use-case in production
 - `mysql_pdo` is installed as the driver for database connections
 - `gd` is installed for image processing
-- `zip` is installed for items that may need that
-- `composer` is installed and ready to use to setup all your PHP dependencies
-- `npm` is installed and ready to use to setup all your Node dependencies
+- `zip` is installed for items that may need that (Laravel)
+- `composer` is installed and ready to setup all your PHP dependencies
+- `npm` is installed and ready to setup all your Node dependencies
 
 ## Platforms
 
@@ -73,6 +73,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `15`
 - `14`
 - `13`
 - `12`
@@ -116,4 +117,18 @@ GitHub Actions will automatically build and push supported tags to Docker Hub on
 docker build -t justintime50/nginx-php:8.0-7 --build-arg PHP_VERSION=8.0 .
 
 sudo docker push justintime50/nginx-php:8.0-7
+```
+
+### msmtp (Mail Client)
+
+msmtp is configured to work with `Mailtrap` out of the box. There is also a gmail template that you can uncomment and use in production. Spin up this container, then run the following to send mail directly with msmtp:
+
+```bash
+echo -e "Subject: Test email from msmtp\r\n\r\nThis is a test email direct from msmtp" |msmtp --debug --from from@example.com -t to@example.com
+```
+
+You can also send mail with PHP which routes the emails through msmtp:
+
+```bash
+php -r "mail('to@example.com','Test email from PHP', 'This is a test email from PHP');"
 ```

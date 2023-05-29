@@ -43,6 +43,9 @@ RUN apk add --no-cache --update \
     && sed -i 's|user nginx;|#user www-data;|' /etc/nginx/nginx.conf \
     && sed -i 's|user =|;user =|' /usr/local/etc/php-fpm.d/www.conf \
     && sed -i 's|group =|;group =|' /usr/local/etc/php-fpm.d/www.conf \
+    # Setup msmtp log
+    && touch /var/log/msmtp.log \
+    && chown www-data:www-data /var/log/msmtp.log \
     # Install the latest version of Composer
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     # Cleanup
@@ -50,6 +53,7 @@ RUN apk add --no-cache --update \
 
 COPY /config/nginx.conf /etc/nginx/http.d/default.conf
 COPY /config/opcache.ini /usr/local/etc/php/conf.d/php-opocache-cfg.ini
+COPY /config/msmtp.ini /usr/local/etc/php/conf.d/php-msmtp-cfg.ini
 COPY /config/msmtprc /etc/msmtprc
 COPY /scripts/start.sh /etc/start.sh
 COPY --chown=www-data:www-data src/ /var/www/html/public

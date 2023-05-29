@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 15 (2023-05-28)
+
+- Overhauls `msmtp` configuration to work with `Mailtrap` instead of `Mailcatcher` out of the box, adjusts default, corrects log file permissions, and enables PHP to use `msmtp` out of the box
+
 ## 14 (2023-01-04)
 
 - Adds NPM to the container
