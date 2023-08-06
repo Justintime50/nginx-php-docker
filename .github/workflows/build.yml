@@ -6,38 +6,29 @@ jobs:
   docker-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Hadolint
-        uses: hadolint/hadolint-action@v3.0.0
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v3.0.0
   sh-checker:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Run sh-checker
-        uses: luizm/action-sh-checker@master
+      - uses: actions/checkout@v3
+      - uses: luizm/action-sh-checker@master
         env:
           SHFMT_OPTS: -i 4 -d
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php_version: ["7.4", "8.0", "8.1", "8.2"]
+        php_version: ['7.4', '8.0', '8.1', '8.2']
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Build Docker image
         run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
-      # TODO: Investigate why I get the error `docker: 'scan' is not a docker command.` on GitHub Actions and re-enable this when possible
-      # We only get 10 free scans a month, hopefully we never use that up or this step will fail
-      # - name: Docker Scan
-      #   run: docker scan nginx-php:${{ matrix.php_version }}
       - name: Run Docker image
         run: docker run -d --name nginx-php -t nginx-php:${{ matrix.php_version }}
       - name: Test image is running
         run: docker ps | grep -q nginx-php
       - name: Test nginx config inside container
         run: |
-          sleep 10
+          sleep 5
           docker exec -t nginx-php nginx -T

@@ -1,4 +1,4 @@
-ARG PHP_VERSION=7.4
+ARG PHP_VERSION=8.2
 FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -40,6 +40,7 @@ RUN apk add --no-cache --update \
     # Setup Nginx directories, permissions, and one-off configurations
     && mkdir -p /var/run/nginx \
     && chown -R www-data:www-data /var/run/nginx /var/lib/nginx /var/log/nginx \
+    && sed -i 's|ssl_protocols TLSv1.1|ssl_protocols|' /etc/nginx/nginx.conf \
     && sed -i 's|user nginx;|#user www-data;|' /etc/nginx/nginx.conf \
     && sed -i 's|user =|;user =|' /usr/local/etc/php-fpm.d/www.conf \
     && sed -i 's|group =|;group =|' /usr/local/etc/php-fpm.d/www.conf \

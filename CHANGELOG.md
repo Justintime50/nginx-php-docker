@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Next Release
+
+- Logs Nginx `access/error` messages to `stdout/stderr`` in addition to file
+- No longer logs `php-fpm` to `stdout`
+- Improves security by adding `X-Frame-Options` and `X-Content-Type-Options` headers
+- Defaults from PHP 7.4 to PHP 8.2 when no flag is passed so `latest` matches expectations better
+
 ## 15 (2023-05-28)
 
 - Overhauls `msmtp` configuration to work with `Mailtrap` instead of `Mailcatcher` out of the box, adjusts default, corrects log file permissions, and enables PHP to use `msmtp` out of the box
