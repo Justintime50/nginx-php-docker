@@ -43,6 +43,9 @@ RUN apk add --no-cache --update \
     && sed -i 's|user nginx;|#user www-data;|' /etc/nginx/nginx.conf \
     && sed -i 's|user =|;user =|' /usr/local/etc/php-fpm.d/www.conf \
     && sed -i 's|group =|;group =|' /usr/local/etc/php-fpm.d/www.conf \
+    # Enable Nginx stdout/stderr logging, disable php-fpm access logs
+    && ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log \
+    && echo "access.log = /dev/null" >> /usr/local/etc/php-fpm.d/www.conf \
     # Setup msmtp log
     && touch /var/log/msmtp.log \
     && chown www-data:www-data /var/log/msmtp.log \
