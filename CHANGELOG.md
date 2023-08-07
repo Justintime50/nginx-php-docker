@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## Next Release
+## 16 (2023-08-06)
 
-- Logs Nginx `access/error` messages to `stdout/stderr`` in addition to file
+- Logs Nginx `access/error` messages to `stdout/stderr` in addition to file
 - No longer logs `php-fpm` to `stdout`
 - Improves security by adding `X-Frame-Options` and `X-Content-Type-Options` headers
 - Defaults from PHP 7.4 to PHP 8.2 when no flag is passed so `latest` matches expectations better

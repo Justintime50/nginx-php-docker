@@ -62,7 +62,7 @@ Once the container spins up, navigate to `http://localhost:8888` in a browser.
 
 ## Docker Tags
 
-Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instance, a valid tag would be `7.4-9` signifying to use PHP v7.4 and the 9th version of this image (nginx config, Dockerfile, etc).
+Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instance, a valid tag would be `8.2-16` signifying to use PHP v8.2 and the 16th version of this image (nginx config, Dockerfile, etc).
 
 ### PHP Versions
 
@@ -73,6 +73,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `16`
 - `15`
 - `14`
 - `13`
@@ -85,7 +86,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Standalone Tags
 
-- `latest` - uses the latest release of this image with all defaults.
+- `latest` - uses the latest release (main branch) of this image with all defaults.
 - `dev` - the testing branch for this image. Do not use this tag in production.
 
 ## Development
