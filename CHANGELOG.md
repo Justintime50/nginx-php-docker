@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 17 (2023-09-04)
+
+- Bumps PHP minor versions used under the hood (necessary for PHP 8.2.9+ for PHP VCR segfault corrections)
+
 ## 16 (2023-08-06)
 
 - Logging
