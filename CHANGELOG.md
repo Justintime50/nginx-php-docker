@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 18 (2023-11-27)
+
+- Adds PHP 8.3 support
+
 ## 17 (2023-09-04)
 
 - Bumps PHP minor versions used under the hood (necessary for PHP 8.2.9+ for PHP VCR segfault corrections)
