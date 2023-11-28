@@ -66,6 +66,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### PHP Versions
 
+- `8.3` - uses the latest release on the PHP 8.3 Alpine track. (Starting with image version `18`)
 - `8.2` - uses the latest release on the PHP 8.2 Alpine track. (Starting with image version `12`)
 - `8.1` - uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
 - `8.0` - uses the latest release on the PHP 8.0 Alpine track.
@@ -73,6 +74,8 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `18`
+- `17`
 - `16`
 - `15`
 - `14`
