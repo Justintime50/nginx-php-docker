@@ -3,6 +3,7 @@
 ## 19 (2024-05-06)
 
 - Adds IP address headers to properly expose real IP addresses in request logs
+- Drop support for PHP 7.4
 
 ## 18 (2023-11-28)
 
