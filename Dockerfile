@@ -21,7 +21,7 @@ RUN apk add --no-cache --update \
     # Install gd for image functions
     freetype-dev~=2 \
     libwebp-dev~=1 \
-    libjpeg-turbo-dev~=2 \
+    libjpeg-turbo-dev~=3 \
     libpng-dev~=1 \
     # Install zip for csv functions
     libzip-dev~=1 \
