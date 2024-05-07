@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 19 (2024-05-06)
+## 19 (2024-05-07)
 
-- Adds IP address headers to properly expose real IP addresses in request logs
+- Corrects access log formatter to include forwarded IP address in addition to remote address
 - Drop support for PHP 7.4 and 8.0
 
 ## 18 (2023-11-28)
