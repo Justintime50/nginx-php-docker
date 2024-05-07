@@ -69,8 +69,8 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 - `8.3` - uses the latest release on the PHP 8.3 Alpine track. (Starting with image version `18`)
 - `8.2` - uses the latest release on the PHP 8.2 Alpine track. (Starting with image version `12`)
 - `8.1` - uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
-- `8.0` - (DEPRECATED) uses the latest release on the PHP 8.0 Alpine track. (Dropped support with image version `19`)
-- `7.4` - (DEPRECATED) uses the latest release on the PHP 7.4 Alpine track. (Dropped support with image version `18`)
+- `8.0` - **DEPRECATED** uses the latest release on the PHP 8.0 Alpine track. (Dropped support with image version `19`)
+- `7.4` - **DEPRECATED** uses the latest release on the PHP 7.4 Alpine track. (Dropped support with image version `19`)
 
 ### Image Versions (see CHANGELOG for more details)
 
@@ -104,7 +104,7 @@ nginx -T
 
 ### Releasing
 
-When releasing this project, cut a new GitHub tag/release that simply iterates the number (eg: 4, 5, 6...). We won't use semver here for simplicity when tagging images.
+When releasing this project, cut a new GitHub tag/release that iterates the whole-number used (eg: 4, 5, 6, etc). We won't use semver here for simplicity when tagging images.
 
 If you are adding a new PHP version, make sure to add it to the list in the GitHub Workflow files.
 
