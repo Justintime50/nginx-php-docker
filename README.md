@@ -15,14 +15,15 @@ A lightweight combined Nginx/PHP-FPM Docker image.
 
 The following features work out of the box without any configuration:
 
-- `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
-- `Nginx` serves as the web host and reverse proxy
+- `bcmatch` is installed for math/currency functionality
+- `composer` is installed for all your PHP dependencies
+- `gd` is installed for image processing
 - `msmtp` is installed and configured (see `config/msmtprc`) out of the box to send email to `Mailtrap`. Alternatively configure for your use-case in production
 - `mysql_pdo` is installed as the driver for database connections
-- `gd` is installed for image processing
+- `Nginx` serves as the web host and reverse proxy
+- `npm` is installed for all your Node dependencies
+- `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 - `zip` is installed for items that may need that (Laravel)
-- `composer` is installed and ready to setup all your PHP dependencies
-- `npm` is installed and ready to setup all your Node dependencies
 
 ## Platforms
 
@@ -74,6 +75,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `20`
 - `19`
 - `18`
 - `17`
