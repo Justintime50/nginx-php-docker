@@ -12,17 +12,17 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --update \
     # Install packages required by PHP/Laravel
     git~=2 \
-    npm \
     icu-dev \
     nginx~=1 \
+    npm \
     unzip~=6 \
     # Install mail server
     msmtp~=1 \
     # Install gd for image functions
     freetype-dev~=2 \
-    libwebp-dev~=1 \
     libjpeg-turbo-dev~=3 \
     libpng-dev~=1 \
+    libwebp-dev~=1 \
     # Install zip for csv functions
     libzip-dev~=1 \
     zip~=3 \
@@ -33,10 +33,11 @@ RUN apk add --no-cache --update \
     --with-freetype \
     # Configure PHP extensions for use in Docker
     && docker-php-ext-install \
-    pdo_mysql \
-    opcache \
-    zip \
+    bcmath \
     gd \
+    opcache \
+    pdo_mysql \
+    zip \
     # Setup Nginx directories, permissions, and one-off configurations
     && mkdir -p /var/run/nginx \
     && chown -R www-data:www-data /var/run/nginx /var/lib/nginx /var/log/nginx \

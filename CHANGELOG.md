@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 20 (2024-10-18)
+
+- Adds `bcmath` php extension to image
+
 ## 19 (2024-05-07)
 
 - Corrects access log formatter to include forwarded IP address in addition to remote address
