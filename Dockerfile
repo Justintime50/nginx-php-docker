@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.3
+ARG PHP_VERSION=8.4
 FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -45,6 +45,12 @@ RUN apk add --no-cache --update \
     && sed -i 's|user nginx;|#user www-data;|' /etc/nginx/nginx.conf \
     && sed -i 's|user =|;user =|' /usr/local/etc/php-fpm.d/www.conf \
     && sed -i 's|group =|;group =|' /usr/local/etc/php-fpm.d/www.conf \
+    # Tune PHP-FPM for more throughput
+    && sed -i 's|pm.start_servers = 2|pm.start_servers = 10|' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's|pm.min_spare_servers = 1|pm.min_spare_servers = 5|' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's|pm.max_spare_servers = 3|pm.max_spare_servers = 15|' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's|pm.max_children = 5|pm.max_children = 50|' /usr/local/etc/php-fpm.d/www.conf \
+    && sed -i 's|;pm.max_requests = 500|pm.max_requests = 500|' /usr/local/etc/php-fpm.d/www.conf \
     # Enable Nginx stdout/stderr logging, disable php-fpm access logs
     && ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log \
     && echo "access.log = /dev/null" >> /usr/local/etc/php-fpm.d/www.conf \
