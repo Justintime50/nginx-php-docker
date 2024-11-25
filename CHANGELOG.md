@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 22 (2024-11-25)
+
+- Right sizes the PHP-FPM workers for systems with 3-4 cores (previously there were too many workers which simply idled)
+
 ## 21 (2024-11-25)
 
 - Adds PHP 8.4 support
