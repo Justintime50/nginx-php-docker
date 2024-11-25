@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 23 (2024-11-25)
+
+Fix invalid comment in `opcache.ini` file
+
 ## 22 (2024-11-25)
 
 - Right sizes the PHP-FPM workers for systems with 3-4 cores (previously there were too many workers which simply idled)
