@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 21 (2024-11-25)
+
+- Adds PHP 8.4 support
+- Tunes PHP-FPM workers for greater throughput
+
 ## 20 (2024-10-18)
 
 - Adds `bcmath` php extension to image

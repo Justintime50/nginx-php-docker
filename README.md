@@ -23,7 +23,7 @@ The following features work out of the box without any configuration:
 - `Nginx` serves as the web host and reverse proxy
 - `npm` is installed for all your Node dependencies
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
-- `zip` is installed for items that may need that (Laravel)
+- `zip` is installed for items that may need it (eg: Laravel, CSV)
 
 ## Platforms
 
@@ -67,6 +67,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### PHP Versions
 
+- `8.4` - uses the latest release on the PHP 8.4 Alpine track. (Starting with image version `21`)
 - `8.3` - uses the latest release on the PHP 8.3 Alpine track. (Starting with image version `18`)
 - `8.2` - uses the latest release on the PHP 8.2 Alpine track. (Starting with image version `12`)
 - `8.1` - uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
@@ -75,6 +76,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `21`
 - `20`
 - `19`
 - `18`
