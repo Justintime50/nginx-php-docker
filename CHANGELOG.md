@@ -1,8 +1,14 @@
 # CHANGELOG
 
+## 24 (2024-11-09)
+
+- Run PHP-FPM over a Unix sockeet instead of TCP since Nginx and PHP-FPM run inside the same container
+- Enable Gzip
+- Bump file upload size from 5mb to 10mb
+
 ## 23 (2024-11-25)
 
-Fix invalid comment in `opcache.ini` file
+- Fix invalid comment in `opcache.ini` file
 
 ## 22 (2024-11-25)
 
