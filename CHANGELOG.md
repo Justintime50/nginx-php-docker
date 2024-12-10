@@ -1,6 +1,12 @@
 # CHANGELOG
 
+## 25 (2024-11-10)
+
+- Properly bundles built Docker image
+
 ## 24 (2024-11-09)
+
+> NOTE: Do not use this version as it was not properly packaged.
 
 - Run PHP-FPM over a Unix sockeet instead of TCP since Nginx and PHP-FPM run inside the same container
 - Enable Gzip
