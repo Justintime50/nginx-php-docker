@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 26 (2024-12-30)
+
+- Pin `node` to v22 explicitly, don't depend on `npm` to install the version we want
+
 ## 25 (2024-11-10)
 
 - Properly bundles built Docker image

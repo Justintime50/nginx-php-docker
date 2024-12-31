@@ -14,6 +14,8 @@ RUN apk add --no-cache --update \
     git~=2 \
     icu-dev \
     nginx~=1 \
+    nodejs~=22 \
+    # Installing npm must occur after nodejs to ensure it uses our pinned nodejs version
     npm \
     unzip~=6 \
     # Install mail server

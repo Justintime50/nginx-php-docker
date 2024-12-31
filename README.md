@@ -21,7 +21,7 @@ The following features work out of the box without any configuration:
 - `msmtp` is installed and configured (see `config/msmtprc`) out of the box to send email to `Mailtrap`. Alternatively configure for your use-case in production
 - `mysql_pdo` is installed as the driver for database connections
 - `Nginx` serves as the web host and reverse proxy
-- `npm` is installed for all your Node dependencies
+- `npm` and `node` are installed for all your Node dependencies and scripts
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 - `zip` is installed for items that may need it (eg: Laravel, CSV)
 
@@ -76,6 +76,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `26`
 - `25`
 - `24`
 - `23`
