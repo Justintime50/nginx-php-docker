@@ -37,6 +37,7 @@ RUN apk add --no-cache --update \
     && docker-php-ext-install \
     bcmath \
     gd \
+    intl \
     opcache \
     pdo_mysql \
     zip \

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 27 (2025-01-17)
+
+- Adds the `intl` extension to the image for internationalization and localization support
+
 ## 26 (2024-12-30)
 
 - Pin `node` to v22 explicitly, don't depend on `npm` to install the version we want

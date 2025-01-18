@@ -18,6 +18,7 @@ The following features work out of the box without any configuration:
 - `bcmatch` is installed for math/currency functionality
 - `composer` is installed for all your PHP dependencies
 - `gd` is installed for image processing
+- `intl` is installed for internationalization and localization support
 - `msmtp` is installed and configured (see `config/msmtprc`) out of the box to send email to `Mailtrap`. Alternatively configure for your use-case in production
 - `mysql_pdo` is installed as the driver for database connections
 - `Nginx` serves as the web host and reverse proxy
