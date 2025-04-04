@@ -30,6 +30,6 @@ jobs:
         run: docker ps | grep -q nginx-php
       - name: Test nginx config inside container
         run: |
-          sleep 2
+          sleep 5
           docker exec -t nginx-php nginx -T
           docker exec -t nginx-php php-fpm --test
