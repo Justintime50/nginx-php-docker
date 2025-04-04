@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 28 (2025-04-03)
+
+- Bumps `max_requests` from `500` to `1000`
+- Bumps `start_servers` from `4` to `8`
+- Changes PHP FPM `log_level` from `notice` to `warning`
+
 ## 27 (2025-01-17)
 
 - Adds the `intl` extension to the image for internationalization and localization support

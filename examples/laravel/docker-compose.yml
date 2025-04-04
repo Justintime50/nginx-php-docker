@@ -1,4 +1,0 @@
-services:
-  my-project:
-    volumes:
-      - ./src/storage:/var/www/html/storage

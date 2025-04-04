@@ -2,7 +2,7 @@
 
 # Nginx/PHP-FPM Docker Image
 
-A lightweight combined Nginx/PHP-FPM Docker image.
+A lightweight, production-ready, combined Nginx/PHP-FPM Docker image.
 
 [![Build Status](https://github.com/Justintime50/nginx-php-docker/workflows/build/badge.svg)](https://github.com/Justintime50/nginx-php-docker/actions)
 [![Image Size](https://img.shields.io/docker/image-size/justintime50/nginx-php)](https://hub.docker.com/repository/docker/justintime50/nginx-php)
@@ -36,7 +36,7 @@ This image offers platform support for the following architectures starting from
 
 ## Install
 
-```bash
+```sh
 # Dockerfile
 FROM: justintime50/nginx-php:latest
 
@@ -46,21 +46,19 @@ image: justintime50/nginx-php:latest
 
 ## Usage
 
+```sh
+docker compose up -d
+```
+
+Once the container spins up, navigate to `http://localhost:8888` in a browser.
+
 ### Vanilla PHP and HTML
 
 Place your `PHP` or `HTML` site files into `/var/www/html/public` inside the container to get started with this image. This can be achieved by using a volume in a `docker-compose` file or by copying them over in a `Dockerfile`. If you are using HTML instead of PHP, ensure you remove the `index.php` file so that your `index.html` file can take priority.
 
 ### Laravel
 
-Place the root of your laravel project in `/var/www/html` so that the `public` folder of laravel lines up with the directory served by this nginx image (see `examples/laravel` for more details).
-
-Want to give this image a spin? Simply run the following:
-
-```bash
-docker compose up -d
-```
-
-Once the container spins up, navigate to `http://localhost:8888` in a browser.
+Place the root of your laravel project in `/var/www/html` so that the `public` folder of laravel lines up with the directory served by this nginx image.
 
 ## Docker Tags
 
@@ -77,6 +75,8 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions (see CHANGELOG for more details)
 
+- `28`
+- `27`
 - `26`
 - `25`
 - `24`
@@ -107,7 +107,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 **Note:** Alpine Linux does not keep old versions of packages. This image pins to the relative major version to try staying flexibile. Future builds may need to be altered if packages are no longer offered.
 
-```bash
+```sh
 # Test nginx configuration
 nginx -T
 ```
@@ -128,7 +128,7 @@ GitHub Actions will automatically build and push supported tags to Docker Hub on
 
 ### Manual Builds
 
-```bash
+```sh
 docker build -t justintime50/nginx-php:8.0-7 --build-arg PHP_VERSION=8.0 .
 
 sudo docker push justintime50/nginx-php:8.0-7
@@ -138,12 +138,12 @@ sudo docker push justintime50/nginx-php:8.0-7
 
 msmtp is configured to work with `Mailtrap` out of the box. There is also a gmail template that you can uncomment and use in production. Spin up this container, then run the following to send mail directly with msmtp:
 
-```bash
+```sh
 echo -e "Subject: Test email from msmtp\r\n\r\nThis is a test email direct from msmtp" |msmtp --debug --from from@example.com -t to@example.com
 ```
 
 You can also send mail with PHP which routes the emails through msmtp:
 
-```bash
+```sh
 php -r "mail('to@example.com','Test email from PHP', 'This is a test email from PHP');"
 ```
