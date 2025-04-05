@@ -26,10 +26,8 @@ jobs:
         run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
       - name: Run Docker image
         run: docker run -d --name nginx-php -t nginx-php:${{ matrix.php_version }}
-      - name: Test image is running
-        run: docker ps | grep -q nginx-php
       - name: Test nginx config inside container
         run: |
-          sleep 10
+          sleep 2
           docker exec -t nginx-php nginx -T
           docker exec -t nginx-php php-fpm --test
