@@ -73,30 +73,9 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 - `8.0` - **DEPRECATED** uses the latest release on the PHP 8.0 Alpine track. (Dropped support with image version `19`)
 - `7.4` - **DEPRECATED** uses the latest release on the PHP 7.4 Alpine track. (Dropped support with image version `19`)
 
-### Image Versions (see CHANGELOG for more details)
+### Image Versions
 
-- `28`
-- `27`
-- `26`
-- `25`
-- `24`
-- `23`
-- `22`
-- `21`
-- `20`
-- `19`
-- `18`
-- `17`
-- `16`
-- `15`
-- `14`
-- `13`
-- `12`
-- `11`
-- `10`
-- `9`
-- `8`
-- `7`
+See the [/CHANGELOG](CHANGELOG) or the [releases](https://github.com/Justintime50/nginx-php-docker/releases) page for more details.
 
 ### Standalone Tags
 
