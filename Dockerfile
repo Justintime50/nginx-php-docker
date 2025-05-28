@@ -10,26 +10,30 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 # If a package is not pinned, it's due to transient version needs per PHP version used
 # hadolint ignore=DL3018
 RUN apk add --no-cache --update \
-    # Install packages required by PHP/Laravel
-    git~=2 \
-    icu-dev \
+    # Install nginx to serve the application
     nginx~=1 \
+    # Install Laravel dependencies
+    icu-dev \
+    # Install JS dependencies
     nodejs~=22 \
-    # Installing npm must occur after nodejs to ensure it uses our pinned nodejs version
     npm \
-    unzip~=6 \
     # Install mail server
     msmtp~=1 \
     # Install gd for image functionality
+    freetype~=2 \
     freetype-dev~=2 \
+    libjpeg-turbo~=3 \
     libjpeg-turbo-dev~=3 \
+    libpng~=1 \
     libpng-dev~=1 \
+    libwebp~=1 \
     libwebp-dev~=1 \
     # Install zip for csv functionality
+    libzip~=1 \
     libzip-dev~=1 \
+    zlib~=1 \
+    zlib-dev~=1 \
     zip~=3 \
-    # Cleanup apk add
-    && rm -rf /var/cache/apk/* /tmp/* \
     # Configure image library
     && docker-php-ext-configure gd \
         --with-jpeg \
@@ -43,6 +47,10 @@ RUN apk add --no-cache --update \
         opcache \
         pdo_mysql \
         zip \
+    # Remove dev packages once we're done using them
+    && apk del icu-dev freetype-dev libjpeg-turbo-dev libpng-dev libwebp-dev libzip-dev \
+    # Cleanup apk add
+    && rm -rf /var/cache/apk/* /tmp/* \
     # Setup directories and permissions
     && mkdir -p /var/run/nginx /var/run/php-fpm \
     && chown -R www-data:www-data /var/run/nginx /var/run/php-fpm /var/lib/nginx /var/log/nginx \

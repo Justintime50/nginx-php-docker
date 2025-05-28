@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 29 (2025-05-28)
+
+- Removes `git` and `unzip` packages as they were unused to reduce image size
+- Removes `*-dev` packages after build to reduce image size
+
 ## 28 (2025-04-03)
 
 - Bumps `max_requests` from `500` to `1000`
