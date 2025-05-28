@@ -32,17 +32,17 @@ RUN apk add --no-cache --update \
     && rm -rf /var/cache/apk/* /tmp/* \
     # Configure image library
     && docker-php-ext-configure gd \
-    --with-jpeg \
-    --with-webp \
-    --with-freetype \
+        --with-jpeg \
+        --with-webp \
+        --with-freetype \
     # Configure PHP extensions for use in Docker
     && docker-php-ext-install \
-    bcmath \
-    gd \
-    intl \
-    opcache \
-    pdo_mysql \
-    zip \
+        bcmath \
+        gd \
+        intl \
+        opcache \
+        pdo_mysql \
+        zip \
     # Setup directories and permissions
     && mkdir -p /var/run/nginx /var/run/php-fpm \
     && chown -R www-data:www-data /var/run/nginx /var/run/php-fpm /var/lib/nginx /var/log/nginx \
