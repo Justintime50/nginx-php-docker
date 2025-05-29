@@ -75,7 +75,7 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### Image Versions
 
-See the [/CHANGELOG](CHANGELOG) or the [releases](https://github.com/Justintime50/nginx-php-docker/releases) page for more details.
+See the [CHANGELOG](CHANGELOG.md) or the [releases](https://github.com/Justintime50/nginx-php-docker/releases) page for more details.
 
 ### Standalone Tags
 
