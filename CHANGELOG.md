@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 30 (2025-05-31)
+
+- Adds `woff`, `ttf`, and `svg` to cached locations
+- Adds `max-age` header to cached assets
+- Adds more `gzip_types`
+- Tosses logs for `favicon.ico` and `robots.txt`
+
 ## 29 (2025-05-28)
 
 - Removes `git` and `unzip` packages as they were unused to reduce image size
