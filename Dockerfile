@@ -34,6 +34,16 @@ RUN apk add --no-cache --update \
     zlib~=1 \
     zlib-dev~=1 \
     zip~=3 \
+    # Install Redis
+    autoconf \
+    gcc \
+    g++ \
+    make \
+    libc-dev \
+    && pecl install \
+        redis \
+    && docker-php-ext-enable \
+        redis \
     # Configure image library
     && docker-php-ext-configure gd \
         --with-jpeg \
@@ -48,7 +58,18 @@ RUN apk add --no-cache --update \
         pdo_mysql \
         zip \
     # Remove dev packages once we're done using them
-    && apk del icu-dev freetype-dev libjpeg-turbo-dev libpng-dev libwebp-dev libzip-dev \
+    && apk del \
+        autoconf \
+        freetype-dev \
+        g++ \
+        gcc \
+        icu-dev \
+        libc-dev \
+        libjpeg-turbo-dev \
+        libpng-dev \
+        libwebp-dev \
+        libzip-dev \
+        make \
     # Cleanup apk add
     && rm -rf /var/cache/apk/* /tmp/* \
     # Setup directories and permissions

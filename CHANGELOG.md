@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 31 (2025-06-10)
+
+- Adds `Redis` PHP extension
+
 ## 30 (2025-05-31)
 
 - Adds `woff`, `ttf`, and `svg` to cached locations

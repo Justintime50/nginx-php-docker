@@ -24,7 +24,8 @@ The following features work out of the box without any configuration:
 - `Nginx` serves as the web host and reverse proxy
 - `npm` and `node` are installed for all your Node dependencies and scripts
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
-- `zip` is installed for items that may need it (eg: Laravel, CSV)
+- `Redis` extension is installed for caching
+- `zip` is installed for items that may need it (eg: Laravel, CSV/Excel)
 
 ## Platforms
 
