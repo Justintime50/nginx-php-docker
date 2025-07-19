@@ -12,6 +12,8 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN apk add --no-cache --update \
     # Install nginx to serve the application
     nginx~=1 \
+    # Install supervisor to run processes
+    supervisor~=4 \
     # Install Laravel dependencies
     icu-dev \
     # Install JS dependencies
@@ -90,9 +92,9 @@ RUN apk add --no-cache --update \
 COPY config/nginx.conf /etc/nginx/http.d/default.conf
 COPY config/php-fpm.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 COPY config/opcache.ini /usr/local/etc/php/conf.d/php-opocache-cfg.ini
+COPY config/supervisord.conf /etc/supervisord.conf
 COPY config/msmtp.ini /usr/local/etc/php/conf.d/php-msmtp-cfg.ini
 COPY config/msmtprc /etc/msmtprc
-COPY scripts/start.sh /etc/start.sh
 COPY --chown=www-data:www-data src/ /var/www/html/public
 
 WORKDIR /var/www/html
@@ -101,4 +103,4 @@ EXPOSE 80 443
 
 USER www-data:www-data
 
-ENTRYPOINT ["/etc/start.sh"]
+ENTRYPOINT ["supervisord", "-c", "/etc/supervisord.conf"]

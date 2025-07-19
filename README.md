@@ -25,6 +25,9 @@ The following features work out of the box without any configuration:
 - `npm` and `node` are installed for all your Node dependencies and scripts
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 - `Redis` extension is installed for caching
+- `supervisord` is installed for process management (Starting with image version `32`)
+  - By default, supervisor starts `php-fpm` and `nginx`
+  - Place any additional supervisord config in `/etc/supervisord/conf.d/*.conf`
 - `zip` is installed for items that may need it (eg: Laravel, CSV/Excel)
 
 ## Platforms

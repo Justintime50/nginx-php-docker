@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 32 (2025-07-18)
+
+- Adds `supervisord` to manage processes, allow for customizing processes (replaces simple entrypoint script)
+
 ## 31 (2025-06-10)
 
 - Adds `Redis` PHP extension
