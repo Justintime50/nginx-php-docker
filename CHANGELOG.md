@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 34 (2025-07-19)
+
+- Don't rotate nginx logs via supervisord
+
 ## 33 (2025-07-19)
 
 - Corrects supervisord config (priorities, log permissions)
