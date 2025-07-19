@@ -80,6 +80,9 @@ RUN apk add --no-cache --update \
     # Fix Nginx configuration
     && sed -i 's|ssl_protocols TLSv1.1|ssl_protocols|' /etc/nginx/nginx.conf \
     && sed -i 's|user nginx;|#user www-data;|' /etc/nginx/nginx.conf \
+    # Setup supervisord log
+    && touch /var/log/supervisord.log \
+    && chown www-data:www-data /var/log/supervisord.log \
     # Enable Nginx stdout/stderr logging so Docker can see them
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \

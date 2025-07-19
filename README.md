@@ -19,15 +19,18 @@ The following features work out of the box without any configuration:
 - `composer` is installed for all your PHP dependencies
 - `gd` is installed for image processing
 - `intl` is installed for internationalization and localization support
-- `msmtp` is installed and configured (see `config/msmtprc`) out of the box to send email to `Mailtrap`. Alternatively configure for your use-case in production
+- `msmtp` is installed and configured (see `config/msmtprc`) out of the box to send email to `Mailtrap`.
+  - Logs located at `/var/log/msmtp.log`
 - `mysql_pdo` is installed as the driver for database connections
 - `Nginx` serves as the web host and reverse proxy
+  - Logs located at `/var/log/nginx/`
 - `npm` and `node` are installed for all your Node dependencies and scripts
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 - `Redis` extension is installed for caching
 - `supervisord` is installed for process management (Starting with image version `32`)
   - By default, supervisor starts `php-fpm` and `nginx`
   - Place any additional supervisord config in `/etc/supervisord/conf.d/*.conf`
+  - Logs located at `/var/log/supervisord.log`
 - `zip` is installed for items that may need it (eg: Laravel, CSV/Excel)
 
 ## Platforms

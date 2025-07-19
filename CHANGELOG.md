@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 33 (2025-07-19)
+
+- Corrects supervisord config (priorities, log permissions)
+
 ## 32 (2025-07-18)
 
 - Adds `supervisord` to manage processes, allow for customizing processes (replaces simple entrypoint script)
