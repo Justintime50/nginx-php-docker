@@ -25,6 +25,7 @@ The following features work out of the box without any configuration:
 - `Nginx` serves as the web host and reverse proxy
   - Logs located at `/var/log/nginx/`
 - `npm` and `node` are installed for all your Node dependencies and scripts
+- `pcntl` for use by Laravel Horizon
 - `PHP-FPM/OPcache` for fast performance in the browser and on the CLI
 - `Redis` extension is installed for caching
 - `supervisord` is installed for process management (Starting with image version `32`)

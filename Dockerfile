@@ -59,6 +59,7 @@ RUN apk add --no-cache --update \
         opcache \
         pdo_mysql \
         zip \
+        pcntl \
     # Remove dev packages once we're done using them
     && apk del \
         autoconf \
