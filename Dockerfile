@@ -33,15 +33,15 @@ RUN apk add --no-cache --update \
     # Install zip for csv functionality
     libzip~=1 \
     libzip-dev~=1 \
+    zip~=3 \
     zlib~=1 \
     zlib-dev~=1 \
-    zip~=3 \
     # Install Redis
     autoconf \
-    gcc \
     g++ \
-    make \
+    gcc \
     libc-dev \
+    make \
     && pecl install \
         redis \
     && docker-php-ext-enable \
@@ -57,9 +57,9 @@ RUN apk add --no-cache --update \
         gd \
         intl \
         opcache \
+        pcntl \
         pdo_mysql \
         zip \
-        pcntl \
     # Remove dev packages once we're done using them
     && apk del \
         autoconf \

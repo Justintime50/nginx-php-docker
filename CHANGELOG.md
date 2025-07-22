@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 35 (2025-07-22)
+
+- Adds `pcntl` PHP extension for process control (eg: Laravel Horizon)
+
 ## 34 (2025-07-19)
 
 - Don't rotate nginx logs via supervisord
