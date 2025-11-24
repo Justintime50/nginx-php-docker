@@ -60,7 +60,7 @@ RUN apk add --no-cache --update \
         pdo_mysql \
         zip \
     # OPcache comes bundled with PHP 8.5 and later, only install it for earlier versions
-    && if [ "$(php -r 'echo PHP_VERSION;')" \< "8.5" ]; then \
+    && if [ "$(php -r 'echo version_compare(PHP_VERSION, \"8.5\", \"<\") ? 1 : 0;')" -eq 1 ]; then \
         docker-php-ext-install opcache; \
     fi \
     # Remove dev packages once we're done using them
