@@ -66,7 +66,7 @@ Place your `PHP` or `HTML` site files into `/var/www/html/public` inside the con
 
 ### Laravel
 
-Place the root of your laravel project in `/var/www/html` so that the `public` folder of laravel lines up with the directory served by this nginx image.
+Place the root of your Laravel project in `/var/www/html` so that the `public` folder of Laravel lines up with the directory served by this nginx image.
 
 ## Docker Tags
 
@@ -74,10 +74,11 @@ Tags for this image follow the syntax of `PHP_VERSION-IMAGE_VERSION`; for instan
 
 ### PHP Versions
 
+- `8.5` - uses the latest release on the PHP 8.5 Alpine track. (Starting with image version `36`)
 - `8.4` - uses the latest release on the PHP 8.4 Alpine track. (Starting with image version `21`)
 - `8.3` - uses the latest release on the PHP 8.3 Alpine track. (Starting with image version `18`)
 - `8.2` - uses the latest release on the PHP 8.2 Alpine track. (Starting with image version `12`)
-- `8.1` - uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
+- `8.1` - **DEPRECATED** uses the latest release on the PHP 8.1 Alpine track. (Starting with image version `9`)
 - `8.0` - **DEPRECATED** uses the latest release on the PHP 8.0 Alpine track. (Dropped support with image version `19`)
 - `7.4` - **DEPRECATED** uses the latest release on the PHP 7.4 Alpine track. (Dropped support with image version `19`)
 

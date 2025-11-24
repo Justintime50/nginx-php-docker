@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.4
+ARG PHP_VERSION=8.5
 FROM php:${PHP_VERSION}-fpm-alpine
 
 # PHP_CPPFLAGS are used by the docker-php-ext-* scripts
@@ -56,10 +56,13 @@ RUN apk add --no-cache --update \
         bcmath \
         gd \
         intl \
-        opcache \
         pcntl \
         pdo_mysql \
         zip \
+    # OPcache comes bundled with PHP 8.5 and later, only install it for earlier versions
+    && if [ "$(php -r 'echo PHP_VERSION;')" \< "8.5" ]; then \
+        docker-php-ext-install opcache; \
+    fi \
     # Remove dev packages once we're done using them
     && apk del \
         autoconf \

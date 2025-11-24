@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 36 (2025-11-24)
+
+- Adds PHP 8.5 support
+- Drops support for PHP 8.1
+
 ## 35 (2025-07-22)
 
 - Adds `pcntl` PHP extension for process control (eg: Laravel Horizon)
