@@ -17,7 +17,7 @@ RUN apk add --no-cache --update \
     # Install Laravel dependencies
     icu-dev \
     # Install JS dependencies
-    nodejs~=22 \
+    nodejs~=24 \
     npm \
     # Install mail server
     msmtp~=1 \

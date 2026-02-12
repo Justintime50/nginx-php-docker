@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 37 (2026-02-12)
+
+- Bumps Node from v22 to v24
+- Bumps supervisord from v4.2 to v4.3 (clearing a Python deprecation warning for `pkg_resources`)
+
 ## 36 (2025-11-24)
 
 - Adds PHP 8.5 support
