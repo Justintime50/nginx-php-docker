@@ -6,12 +6,12 @@ jobs:
   docker-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: hadolint/hadolint-action@v3.3.0
   sh-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: luizm/action-sh-checker@master
         env:
           SHFMT_OPTS: -i 4 -d
@@ -21,7 +21,7 @@ jobs:
       matrix:
         php_version: ['8.2', '8.3', '8.4', '8.5']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build Docker image
         run: docker build -t nginx-php:${{ matrix.php_version }} --build-arg PHP_VERSION=${{ matrix.php_version }} .
       - name: Run Docker image
