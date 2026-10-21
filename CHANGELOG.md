@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 38 (2026-10-21)
+
+- Bumps PHP to patch critical vulnerabilities:
+  - `CVE-2026-109618` [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
+  - `CVE-2026-109619` [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
+
 ## 37 (2026-02-12)
 
 - Bumps Node from v22 to v24
