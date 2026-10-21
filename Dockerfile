@@ -108,6 +108,7 @@ WORKDIR /var/www/html
 
 EXPOSE 80 443
 
-USER www-data:www-data
+# 82 is the UID and GID for the www-data user in this image
+USER 82:82
 
 ENTRYPOINT ["supervisord", "-c", "/etc/supervisord.conf"]
